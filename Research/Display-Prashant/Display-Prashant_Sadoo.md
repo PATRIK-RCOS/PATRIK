@@ -1,5 +1,5 @@
 <h1>Displays</h1>
-<h2>Selectrion Criteria</h2>
+<h2>Selection Criteria</h2>
 
 * What size and resolution display do we want  
     * Under 6” but above 3”
