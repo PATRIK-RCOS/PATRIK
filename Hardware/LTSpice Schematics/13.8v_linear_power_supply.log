@@ -1,0 +1,7 @@
+Circuit: * C:\Users\bruh\Documents\GitHub\PATRIK\Hardware\LTSpice Schematics\13.8v_linear_power_supply.asc
+
+Error on line 14 : r2 n005 n004 r
+	 Unable to find definition of model "r"
+Error on line 15 : r3 n004 0 r
+	 Unable to find definition of model "r"
+Fatal Error: k1_A1: coupling to non-existent inductor l3.
