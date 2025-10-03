@@ -140,6 +140,296 @@ The mixer multiplies the incoming RF signal with the LO:
 
 ---
 
+## RF Front End
+
+### RF Amplifier Stage
+
+**Typical Configuration:**
+```
+Antenna -- C_coupling -- Q2 (2N3904) Common Emitter
+                         |
+                    Tuned Circuit (L1 + C_var)
+                         |
+                    To Mixer
+```
+
+**Functions:**
+1. Provides RF gain (10-15 dB typical)
+2. Provides some selectivity via tuned circuit
+3. Improves sensitivity
+4. Reduces LO radiation back to antenna
+
+**Tuned Circuit:**
+- L1: ~2-3 µH for 40m band
+- Q: 20-40 typical
+- Bandwidth: ~200-300 kHz
+- Provides image rejection (though not critical in direct conversion)
+
+**Limitations:**
+- No strong filtering (overload from strong signals)
+- No AGC (automatic gain control)
+- Direct conversion creates "zero-IF" with specific issues
+
+---
+
+## Transmitter Section
+
+### Crystal Oscillator as Carrier Source
+
+Same oscillator used in receive mode becomes the carrier generator for transmit.
+
+**CW Keying:**
+```
+Key Switch
+    |
+    +-- Oscillator Enable
+    |
+    +-- Power Amplifier Stage
+```
+
+**Keying Methods:**
+
+1. **Simple On/Off Keying:**
+   - Key switches oscillator power
+   - Problem: Creates "clicks" (key clicks)
+   - Bandwidth spreads beyond necessary
+
+2. **Shaped Keying (Better):**
+   ```
+   Key -- RC Rise/Fall Circuit -- Oscillator
+          (~5ms rise, ~5ms fall)
+   ```
+   - Softens edges
+   - Reduces bandwidth
+   - Less interference
+
+### Power Amplifier
+
+**Class A/AB Configuration:**
+```
+Crystal Osc -- Base Drive -- Q3 (2N2222/2N3866)
+                              |
+                          RFC (RF Choke)
+                              |
+                           +12V
+                              
+            Output: 500mW - 1W
+```
+
+**Design Details:**
+
+- **PA Transistor:** 2N2222, 2N3866, or similar RF transistor
+- **Bias:** Class AB for better efficiency (~40-50%)
+- **Drive Power:** ~10-20 mW from oscillator
+- **Output Power:** 300mW to 1W depending on supply voltage
+- **Collector Load:** ~50Ω via matching network
+
+**Impedance Matching:**
+- Collector impedance: ~150-300Ω
+- Antenna impedance: 50Ω
+- Matching network: L-network or Pi-network
+
+---
+
+## Output Low-Pass Filter
+
+### Harmonic Suppression
+
+Critical for legal operation - must suppress harmonics below legal limits.
+
+**5th Order Chebyshev LPF (typical):**
+```
+PA Output -- L1 -- C1 -- L2 -- C2 -- L3 -- Antenna
+                   |            |
+                  GND          GND
+```
+
+**For 40m (7 MHz):**
+- L1, L3: 1.5 µH (air-wound)
+- L2: 2.2 µH
+- C1, C2: 330 pF (high voltage, NPO/C0G)
+- Cutoff: ~10 MHz
+- 2nd harmonic rejection: >40 dB
+- 3rd harmonic rejection: >50 dB
+
+**Design Goals:**
+- Pass fundamental (7 MHz) with <1 dB loss
+- Attenuate 2nd harmonic (14 MHz): >40 dB
+- Attenuate 3rd harmonic (21 MHz): >50 dB
+- Input/output impedance: 50Ω
+
+---
+
+## T/R Switching
+
+### Simple Diode Switch
+
+**Architecture:**
+```
+                    D_TX (1N4148)
+Antenna -- C --+---/\/\/\---+-- TX PA Output
+               |             |
+              D_RX        RFC (blocks RF)
+               |             |
+           RX Input       +12V (TX key line)
+```
+
+**Operation:**
+
+**Receive Mode:**
+- TX key line = 0V
+- D_TX reversed biased (open)
+- D_RX forward biased (low impedance path)
+- RF flows to receiver
+
+**Transmit Mode:**
+- TX key line = +12V
+- D_TX forward biased (low impedance)
+- D_RX reversed biased (open)
+- PA output flows to antenna
+
+**Isolation:**
+- TX to RX: ~20 dB typical
+- Not perfect - receiver can hear own transmit
+- RX amplifier can be muted during TX (better designs)
+
+---
+
+## Power Supply Considerations
+
+**Typical Requirements:**
+- Voltage: 9-12V DC
+- Current: 
+  - Receive: 10-30 mA
+  - Transmit: 100-200 mA (depending on output power)
+- Regulation: Not critical, but affects frequency stability
+
+**Oscillator Power:**
+- Should be well-filtered
+- Ripple affects frequency stability
+- Some designs use separate regulator for oscillator (7805, etc.)
+
+**Frequency Pulling Effects:**
+- Supply voltage change → oscillator frequency change
+- Typical: ~50 Hz per volt
+- Battery operation preferred for stability
+
+---
+
+## Performance Characteristics
+
+### Sensitivity
+- Typical: 0.5-1 µV for 10 dB S/N
+- Limited by:
+  - Mixer conversion loss
+  - LO noise
+  - Audio amplifier noise
+  - No RF filtering (overload)
+
+### Selectivity
+- Essentially none at RF level
+- Audio filtering provides only selectivity
+- Bandwidth: ~3 kHz (limited by audio filter)
+- No adjacent channel rejection at RF
+
+### Frequency Stability
+- Short term: ±50-100 Hz (5 minutes)
+- Long term: ±500 Hz (temperature drift)
+- Key clicks: Can be severe without shaping
+- Chirp: Occurs if oscillator loads during TX keying
+
+---
+
+## Common Issues and Solutions
+
+### Problem: Oscillator Won't Start
+**Causes:**
+- Crystal defective
+- Insufficient gain (wrong transistor, bad bias)
+- Excessive loading on oscillator
+- Wrong capacitor values
+
+**Solutions:**
+- Verify crystal with separate oscillator
+- Check transistor beta (>100 typical)
+- Reduce loading on output
+- Adjust C1, C2 values
+
+### Problem: Frequency Instability
+**Causes:**
+- Poor power supply filtering
+- Thermal effects on crystal
+- Mechanical vibration
+- Loading changes between TX/RX
+
+**Solutions:**
+- Add voltage regulator for oscillator
+- Mount crystal firmly
+- Use buffer amplifier after oscillator
+- Separate TX/RX oscillators (more complex)
+
+### Problem: Severe Key Clicks
+**Causes:**
+- Hard on/off keying
+- No shaping network
+- LPF not adequate
+
+**Solutions:**
+- Add RC shaping (5ms rise/fall)
+- Verify LPF construction
+- Consider buffered keying
+
+### Problem: Low TX Power
+**Causes:**
+- Insufficient drive from oscillator
+- Poor impedance matching
+- Low supply voltage
+- PA transistor damaged
+
+**Solutions:**
+- Verify oscillator output level (~10-20 mW)
+- Check/redesign matching network
+- Verify 12V supply under load
+- Replace PA transistor
+
+---
+
+## Improvements and Variants
+
+### VFO Version (PIXIE-VXO)
+Replace crystal oscillator with Variable Crystal Oscillator (VXO):
+- Add variable capacitor in series with crystal
+- Tuning range: ±10 kHz typical
+- Allows working multiple stations
+- Still very simple (add one variable capacitor)
+
+### Superheterodyne PIXIE
+Some builders add IF stage:
+- Crystal filter for selectivity
+- Better sensitivity
+- More complex (defeats "simplicity" goal)
+
+### Two-Crystal Design
+Use separate crystals for TX and RX:
+- Eliminates chirp
+- Allows offset for better zero-beating
+- Doubles crystal cost
+
+---
+
+## Conclusion
+
+The PIXIE represents the absolute minimum viable transceiver design. Its single crystal oscillator serves both transmit and receive functions, demonstrating elegant simplicity. While it has significant limitations (fixed frequency, no selectivity, low power), it serves as an excellent introduction to:
+- Crystal oscillator design and behavior
+- Direct conversion receiver principles
+- Basic RF power amplifier design
+- CW operation
+- RF construction techniques
+
+The oscillator design, while extremely simple, demonstrates core principles that apply to much more sophisticated radios: frequency stability, phase noise, and the trade-off between simplicity and performance.
+
+---
+
 **References:**
 - ARRL Handbook (various editions, 2014, 2017, 2020)
 - "Experimental Methods in RF Design" - ARRL
