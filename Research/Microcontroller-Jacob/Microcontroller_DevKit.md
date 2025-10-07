@@ -23,6 +23,11 @@ On the ST website, there are 133 listed dev boards in the STM32H7 family. Becaus
   
 With these options set to filter the majority of the dev boards, we are left with 2 boards that more closely match what we want out of the STM32H7 family.
 
+* Differences between the two: STM32H745ZI vs STM32H755ZI
+  * The only difference between these two models is the inclusion of a much greater support for cryptography and security features with the 55ZI.
+  * The 55ZI includes cryptography types: AES, DES/TDES, SHA-1, SHA-2
+  * Both models include: TRNG
+* With this we need to decide if there is any use for us with cryptography and if not we will choose the cheaper option
 # Tasks for this week:
 * Research how to implement a DDS (direct digital synthesis) module with the STM32
 * Implement a basic UI system with the controller Alex will eventually give
