@@ -6,4 +6,5 @@
   
 ## Microcontroller DevKit Research:
 * [Research Notes](Microcontroller_DevKit.md)
-#### Decision: <ins>**TBD**</ins>
+#### Current Candidates: [<ins>**STM32H745ZI**</ins>](https://www.st.com/en/microcontrollers-microprocessors/stm32h745zi.html) and [<ins>**STM32H755ZI**</ins>](https://www.st.com/en/microcontrollers-microprocessors/stm32h755zi.html)
+
