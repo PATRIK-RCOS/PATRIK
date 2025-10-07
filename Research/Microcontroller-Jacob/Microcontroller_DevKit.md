@@ -6,8 +6,6 @@ On the ST website, there are 133 listed dev boards in the STM32H7 family. Becaus
 * We will want to have a dual core board
   * Better parallel processing capability
   * Load splitting and smooth/seamless operation
-* Minimum of 480MHz
-  * TODO: Expand here
 * Double-precision FPU
   * Displaying and processing the frequency of the transciever will require the use of floating point numbers.
   * This will allow for the highest acuracy and precision of processing numberical frequencies.
