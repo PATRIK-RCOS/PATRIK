@@ -1,7 +1,7 @@
 ## Materials
-Housing will be heavily based on design of the Xiegu G90 HF transceiver
+Housing will be heavily based on design of the Xiegu G90 HF transceiver and the T41-EP SDT
 
-- Considerations
+### Considerations
     - Want it to look clean, cleaner than 3d print PLA
     - Should be shock and vibration resisatnt
 	- Durable material, EMI shielding
@@ -13,7 +13,10 @@ Housing will be heavily based on design of the Xiegu G90 HF transceiver
         - EMI shielding
         - Ease of use
 	- Rough dimensions
-        - 
+        - Larger than the g90, probably around the size of the T41-EP SDT
+    - Pop up shade hood 
+        Retractable or fold up would be ideal
+### Materials
 	- Carbon Fiber filament
         - Pros
             - Strong along xy axis
@@ -57,8 +60,8 @@ Design
 
 
  
-Research
-Machining of aluminum alloys: a review
+## Research
+### Machining of aluminum alloys: a review
 DOI 10.1007/s00170-016-8431-9
 -	Aluminum combines lightness and strength making it very useful in manufacturing
 -	High strength and ductility, low melting temperature
@@ -81,7 +84,7 @@ DOI 10.1007/s00170-016-8431-9
 -	Any treatment or addition of chemical elements lowers machining forces, compensating the increase in mechanical strength and reduced contact area
 -	
  
-Electromagnetic interference (EMI) shielding effectiveness (SE) of pure aluminum: an experimental assessment for 5G (SUB 6GHZ)
+### Electromagnetic interference (EMI) shielding effectiveness (SE) of pure aluminum: an experimental assessment for 5G (SUB 6GHZ)
 -	Focus on 5G, which is less than 6 GHz
     - So maybe technically counts for 28-30 MHz
     - Says that it’s particularly effective from 4.5-5.1 GHz so maybe not
@@ -93,7 +96,7 @@ Electromagnetic shielding and mechanical properties of AL6061 metal matrix compo
     - But this is a combination of an alloy and a specific ratio of ingredients, we should stick to stock AL6061, there are enough options to choose from already
 
 
-AL6061 Properties
+### AL6061 Properties
 -	Thermal conductivity coefficient: 155 W/m*k
 -	Ultimate tensile strength: 115-310 depending on specific alloy and temper
 -	Yield strength: 50-275 depending on specific alloy and temper
@@ -160,3 +163,15 @@ AL6061 Properties
 - Sheet metal fabrication is a possibility  with this one
     - The bars could just be made with rods bent in the right shapes
     - Bottom standoffs might be CNC or something but the rest is just sheet metal, very cheap, don’t know about strength
+
+## Expert Advice
+- After talking to an expert on machining and mechanical projects, we are exploring using plastic sheets instead of metal sheets.
+    - Metal shielding would still be required but it would only be necessary on some circuit boards, instead of making the whole housing out of it
+- Possible plastic types include ABS, but we are leaning towards Lexan due to its strength
+- ABS would be lower cost but Lexan would have better strength
+- CAD/CAM process would be the same as machining, laser cutting the plastic is even available 
+### Evaluating different types of plastic sheets
+| Type | Tensile Strength |
+| ---- | ---------------- |
+| ABS  | 4100 psi         |
+| Lexan| 9500 psi         |
