@@ -25,7 +25,10 @@ With these options set to filter the majority of the dev boards, we are left wit
   * The only difference between these two models is the inclusion of a much greater support for cryptography and security features with the 55ZI.
   * The 55ZI includes cryptography types: AES, DES/TDES, SHA-1, SHA-2
   * Both models include: TRNG
-* With this we need to decide if there is any use for us with cryptography and if not we will choose the cheaper option
+  * [Chip Prices](https://estore.st.com)
+    * STM32H745ZIT6 current chip price: $11.05
+    * STM32H755ZIT6 current chip price: $12.52
+* For this project, we will not be implementing any security features that will require the utilization of cryptographic acceleration. So for this reason, we will be going forward with a dev board that utilizes the STM32H745ZI chip to save on cost. 
 # Tasks for this week:
 * Research how to implement a DDS (direct digital synthesis) module with the STM32
 * Implement a basic UI system with the controller Alex will eventually give
