@@ -29,8 +29,3 @@ With these options set to filter the majority of the dev boards, we are left wit
     * STM32H745ZIT6 current chip price: $11.05
     * STM32H755ZIT6 current chip price: $12.52
 * For this project, we will not be implementing any security features that will require the utilization of cryptographic acceleration. So for this reason, we will be going forward with a dev board that utilizes the STM32H745ZI chip to save on cost. 
-# Tasks for this week:
-* Research how to implement a DDS (direct digital synthesis) module with the STM32
-* Implement a basic UI system with the controller Alex will eventually give
-* Continue dev board research
-* Find something that I personally like with the pixie kit
