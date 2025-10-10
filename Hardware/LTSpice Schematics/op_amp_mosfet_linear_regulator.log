@@ -1,0 +1,50 @@
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\bruh\Documents\GitHub\PATRIK\Hardware\LTSpice Schematics\op_amp_mosfet_linear_regulator.net
+Start Time: Tue Oct  7 14:48:53 2025
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration failed to find .op point.  (Use ".option noopiter" to skip.)
+Starting Gmin stepping
+Gmin = 10
+Gmin = 1.07374
+Gmin = 0.115292
+Gmin = 0.0123794
+Gmin = 0.00132923
+vernier = 0.5
+Gmin = 0.000247786
+vernier = 0.25
+vernier = 0.125
+vernier = 0.166667
+Gmin = 0.000203952
+vernier = 0.222222
+Gmin = 0.000126905
+vernier = 0.296296
+vernier = 0.395061
+Gmin = 5.90307e-05
+vernier = 0.526748
+vernier = 0.702331
+Gmin = 1.80199e-05
+vernier = 0.936441
+Gmin = 2.8036e-06
+vernier = 1
+Gmin = 3.0491e-07
+Gmin = 3.27395e-08
+Gmin = 3.51537e-09
+Gmin = 3.7746e-10
+Gmin = 4.05295e-11
+Gmin = 4.35182e-12
+Gmin = 4.67273e-13
+Gmin = 0
+Gmin stepping succeeded in finding the operating point.
+
+Total elapsed time: 0.176 seconds.
+
+Files loaded:
+C:\Users\bruh\Documents\GitHub\PATRIK\Hardware\LTSpice Schematics\op_amp_mosfet_linear_regulator.net
+C:\Users\bruh\AppData\Local\LTspice\lib\cmp\standard.dio
+C:\Users\bruh\AppData\Local\LTspice\lib\cmp\standard.bjt
+C:\Users\bruh\AppData\Local\LTspice\lib\sub\UniversalOpAmp1.lib
+

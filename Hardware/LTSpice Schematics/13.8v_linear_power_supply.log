@@ -1,7 +1,17 @@
-Circuit: * C:\Users\bruh\Documents\GitHub\PATRIK\Hardware\LTSpice Schematics\13.8v_linear_power_supply.asc
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\bruh\Documents\GitHub\PATRIK\Hardware\LTSpice Schematics\13.8v_linear_power_supply.net
+Start Time: Fri Oct 10 17:25:56 2025
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.915 seconds.
 
-Error on line 14 : r2 n005 n004 r
-	 Unable to find definition of model "r"
-Error on line 15 : r3 n004 0 r
-	 Unable to find definition of model "r"
-Fatal Error: k1_A1: coupling to non-existent inductor l3.
+Files loaded:
+C:\Users\bruh\Documents\GitHub\PATRIK\Hardware\LTSpice Schematics\13.8v_linear_power_supply.net
+C:\Users\bruh\AppData\Local\LTspice\lib\cmp\standard.dio
+C:\Users\bruh\AppData\Local\LTspice\lib\cmp\standard.bjt
+C:\Users\bruh\AppData\Local\LTspice\lib\sub\LT6016.sub
+

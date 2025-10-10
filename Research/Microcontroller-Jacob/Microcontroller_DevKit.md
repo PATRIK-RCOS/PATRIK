@@ -1,30 +1,31 @@
 # Research for Dev Kit Boards
-Research for the dev kit will begin from here: https://www.st.com/en/microcontrollers-microprocessors/stm32h7-series/products.html
+Research for the dev kit began from here: https://www.st.com/en/microcontrollers-microprocessors/stm32h7-series/products.html
 
 # Filtering out the Bulk
 On the ST website, there are 133 listed dev boards in the STM32H7 family. Because of this, we must filter out the bulk of the dev boards into a list that suits our needs.
-* We will want to have a dual core board for better parallel processing capability
-  * TODO: Expand on this here
-* Minimum of 480MHz
-  * TODO: Expand here
-* Needs to be a dual core dev board for load splitting and smooth/seamless operation
+* We will want to have a dual-core board
+  * Better parallel processing capability
+  * Load splitting and smooth/seamless operation
 * Double-precision FPU
-  * Displaying and processing the frequency of the transciever will require the use of floating point numbers.
-  * This will allow for the highest acuracy and precision of processing numberical frequencies.
+  * Displaying and processing the frequency of the transceiver will require the use of floating-point numbers.
+  * This will allow for the highest accuracy and precision of processing numerical frequencies.
 * Co-Processor Type
   * 3 Options: None, Cordic, Cordic + FMAC
   * This would affect our ability to digitally process signals (with a DSP)
-  * After some talk we have decided to contain our DSP purposes external from the STM32
+  * After some talk, we have decided to keep our DSP purposes external to the STM32
   * This option holds no weight
 * Needs dual bank flash
-  * Dual bank flash allows the simulatneous code execution from one bank while allowing R/W operations to the other
-  * This would be optimal in running the radio and doing other options with storage simulatneously such as saving the VFO to memory
-* Because Chrom-ART 2D graphics acceleration is available, it would help create a user interface that is free of lag, therefore we will require it
+  * Dual bank flash allows the simultaneous code execution from one bank while allowing R/W operations to the other
+  * This would be optimal in running the radio and doing other options with storage simultaneously, such as saving the VFO to memory
+* Because Chrom-ART 2D graphics acceleration is available, it would help create a user interface that is free of lag; therefore, we will require it
   
-With these options set to filter the majority of the dev boards, we are left with 24 boards that more closely match what we want out of the STM32H7 family.
+With these options set to filter the majority of the dev boards, we are left with 2 boards that more closely match what we want out of the STM32H7 family.
 
-# Tasks for this week:
-* Research how to implement a DDS (direct digital synthesis) module with the STM32
-* Implement a basic UI system with the controller Alex will eventually give
-* Continue dev board research
-* Find something that I personally like with the pixie kit
+* Differences between the two: STM32H745ZI vs STM32H755ZI
+  * The only difference between these two models is the inclusion of a much greater support for cryptography and security features with the 55ZI.
+  * The 55ZI includes cryptography types: AES, DES/TDES, SHA-1, SHA-2
+  * Both models include: TRNG
+  * [Chip Prices](https://estore.st.com)
+    * STM32H745ZIT6 current chip price: $11.05
+    * STM32H755ZIT6 current chip price: $12.52
+* For this project, we will not be implementing any security features that will require the utilization of cryptographic acceleration. So for this reason, we will be going forward with a dev board that utilizes the STM32H745ZI chip to save on cost. 
