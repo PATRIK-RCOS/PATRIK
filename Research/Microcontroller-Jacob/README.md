@@ -6,5 +6,11 @@
   
 ## Microcontroller DevKit Research:
 * [Research Notes](Microcontroller_DevKit.md)
-#### Current Candidates: [<ins>**STM32H745ZI**</ins>](https://www.st.com/en/microcontrollers-microprocessors/stm32h745zi.html) and [<ins>**STM32H755ZI**</ins>](https://www.st.com/en/microcontrollers-microprocessors/stm32h755zi.html)
+#### Decision: [<ins>**STM32H745ZI**</ins>](https://www.st.com/en/microcontrollers-microprocessors/stm32h745zi.html)
+
+
+# Todo:
+* Research how to implement a DDS (direct digital synthesis) module with the STM32
+* Implement a basic UI system with the controller [Xalllle](https://github.com/Xalllle) will eventually give
+* Find something that I personally like with the pixie kit
 
