@@ -1,5 +1,5 @@
 # Research for Dev Kit Boards
-Research for the dev kit will begin from here: https://www.st.com/en/microcontrollers-microprocessors/stm32h7-series/products.html
+Research for the dev kit began from here: https://www.st.com/en/microcontrollers-microprocessors/stm32h7-series/products.html
 
 # Filtering out the Bulk
 On the ST website, there are 133 listed dev boards in the STM32H7 family. Because of this, we must filter out the bulk of the dev boards into a list that suits our needs.
