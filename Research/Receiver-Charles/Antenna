@@ -1,0 +1,49 @@
+0.75 wavelength above ground
+- https://www.hamuniverse.com/wb4yjtdipolepatterns.html
+Inverted V setup
+
+What kind of wire?
+
+# Insulation?
+Using wire without insulation is possible for solid-core wire. However, this comes with the downside that the antenna could short by accident if moved too much during installation.
+If we are using stranded wire, we will have to use insulation to keep the wire strands intact.
+
+# Stranded vs Solid Core
+Stranded wire is the best type of wire for antennas. Solid core wire, while very strong and durable, is not flexible. Thus, solid core wire is much more prone to breaking under its own weight, not to mention wind and other environmental factors. Stranded wire is also easier to crimp connectors onto, not needing soldering.
+- Thus, we will use stranded wire for the antenna. And thus, it will also have insulation!
+
+# Gauge
+Needs to handle 25 watts, maximum 25 watts 50% duty cycle (FT8)
+
+Safest bet would be to use 16 gauge wire. This gauge of wire is practically guaranteed to withstand 100 watts 100% duty cycle. 
+This wire is also very resistant to breaking under its own weight and will be good for medium-term installations.
+
+Mounting system?
+- If going with Inverted V, pole in the middle and stakes w/ rope(?)
+
+
+Where to feed it?
+
+Feeding
+- Choke?
+- 1:1 Balun?
+
+
+Strain relief?
+- Insulators
+- Springs? (for permanent installation)
+
+
+What length of coax to use?
+- Do we use coax?
+
+
+Counterpoise?
+# 1.25
+Requires matching network
+
+
+# 1
+
+
+# 0.5
