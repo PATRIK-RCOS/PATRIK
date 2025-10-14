@@ -28,4 +28,5 @@ With these options set to filter the majority of the dev boards, we are left wit
   * [Chip Prices](https://estore.st.com)
     * STM32H745ZIT6 current chip price: $11.05
     * STM32H755ZIT6 current chip price: $12.52
-* For this project, we will not be implementing any security features that will require the utilization of cryptographic acceleration. So for this reason, we will be going forward with a dev board that utilizes the STM32H745ZI chip to save on cost. 
+* Even though there are unused features on the 55ZI and the prices are very similar, with the 45ZI beating the 55ZI by a small margin, the availability of 45ZI dev boards is greatly limited, with many listings having a higher price than the 55ZI.
+* This leads us to the decision to go through with implementing our project on an  STM32H755ZI dev board. 
