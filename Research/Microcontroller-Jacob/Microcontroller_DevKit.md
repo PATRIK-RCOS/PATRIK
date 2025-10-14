@@ -21,6 +21,7 @@ On the ST website, there are 133 listed dev boards in the STM32H7 family. Becaus
   
 With these options set to filter the majority of the dev boards, we are left with 2 boards that more closely match what we want out of the STM32H7 family.
 
+# Deciding Between Two Chips
 * Differences between the two: STM32H745ZI vs STM32H755ZI
   * The only difference between these two models is the inclusion of a much greater support for cryptography and security features with the 55ZI.
   * The 55ZI includes cryptography types: AES, DES/TDES, SHA-1, SHA-2
@@ -29,4 +30,5 @@ With these options set to filter the majority of the dev boards, we are left wit
     * STM32H745ZIT6 current chip price: $11.05
     * STM32H755ZIT6 current chip price: $12.52
 * Even though there are unused features on the 55ZI and the prices are very similar, with the 45ZI beating the 55ZI by a small margin, the availability of 45ZI dev boards is greatly limited, with many listings having a higher price than the 55ZI.
-* This leads us to the decision to go through with implementing our project on an  STM32H755ZI dev board. 
+# Decision
+* This leads us to the decision to go through with implementing our project on an  **STM32H755ZI** dev board. 
