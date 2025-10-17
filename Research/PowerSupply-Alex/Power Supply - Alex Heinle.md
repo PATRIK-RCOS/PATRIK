@@ -53,13 +53,32 @@ o To improve, place multiple capacitors in parallel -> total impedance decreases
 ==> Capacitance multiplier??  
 ==> Linear regulators are not great at decreasing ripple (given 10s-100s mV of ripple)
 
-Input to the system: 120VAC +- 10% (Amplitude is 169.7 volts +- 16.96)
+Purpose:
 
-Output of first transformer: 15VAC (Amplitude is 21.21 volts +- 2.12)
+Pixie kit power supply techniques.
 
-Output of bridge rectifier: 19.81+- 2.12
+The pixie kit uses multiple power supply techniques. 
 
-While using a 12,000uF capacitor for smoothing, the lowest volage should be 15.19
+First, there is a power input (typically from a battery or ac rectifier) which is connected via pins.
+
+For designs that do not use a battery, ac power is accepted and is rectified on the circuit using a built in bridge rectifier.
+
+For this design, it prevents the system from reverse polarity as well. 
+
+For designs without a bridge rectifier, a Zener diode is used across the power supply.
+
+This Zener diode allows for transient voltage suppression, with all current going straight to ground under high voltage situations.
+
+
+
+Different components are fed through the bridge rectifier. This includes the oscillator, power amplifier, and audio amplifier. 
+
+Since these circuits experience intermittent transients, decoupling capacitors are used to prevent significant voltage drops.
+
+
+
+
+
 
 # References:
 
