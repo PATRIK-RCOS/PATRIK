@@ -22,14 +22,24 @@
 ## Reasoning 
 ### Specifications
 - High Linearity Module
--     This means that there is a linear relationship
--     This feature allows for a signal to be ouputted with minimal to no distortion while also amplifying it.
--     For the 10 meter HF radio this is important for recieving and transmitting signals.
-    -     Decrease distortion and/or interference
-    -     Locate signals that are obstructed or weak
+<ul>
+ <li>This means that there is a linear relationship</li>
+ <li>This feature allows for a signal to be ouputted with minimal to no distortion while also amplifying it.</li>
+ <li>For the 10 meter HF radio this is important for recieving and transmitting signals.
+     <ul>
+         <li>Decrease distortion and/or interference</li>
+         <li>Locate signals that are obstructed or weak</li>
+     </ul>
+ </li>
+</ul>
 
   
 ### Project Needs
-- 10 Meter HF Radio
--     10 Meters has a Frequency Range of 28.000 MHz - 29.700 MHz
--     Transmit and Recieve
+<ul>
+    <li>10 Meter HF Radio
+    <ul>
+        <li>10 Meters has frequency range of 28.000 MHz - 29.700 MHz</li>
+        <li>Functions include both a reciever and transmitter</li>
+    </ul>
+    </li>
+</ul>
