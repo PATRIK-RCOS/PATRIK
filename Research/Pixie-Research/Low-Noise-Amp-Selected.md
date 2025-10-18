@@ -21,7 +21,8 @@
   
 ## Reasoning 
 ### Specifications
-- High Linearity Module
+<ul>
+    <li>High Linearity Module
 <ul>
  <li>This means that there is a linear relationship</li>
  <li>This feature allows for a signal to be ouputted with minimal to no distortion while also amplifying it.</li>
@@ -31,6 +32,8 @@
          <li>Locate signals that are obstructed or weak</li>
      </ul>
  </li>
+</ul>
+    </li>
 </ul>
 
   
