@@ -28,6 +28,25 @@
 <ul>
     <li>Price: $34.95</li>
     <li>Connectors: SMA, USB</li>
+    <li>Features:
+    <ul>
+        <li>High gain = +20dB</li>
+        <li>Low Noise Figure = 2.3-2.7dB
+        <ul>
+            <li>usually 2.5dB</li>
+        </ul>
+        </li>
+        <li>Voltage = 3.3-5V
+        <ul>
+            <li>usually 5V</li>
+        </ul>
+        </li>
+        <li>High Linearity Module</li>
+    </li>
+</ul>
+<ul>
+    <li>Price: $34.95</li>
+    <li>Connectors: SMA, USB</li>
 </ul>
 
 
