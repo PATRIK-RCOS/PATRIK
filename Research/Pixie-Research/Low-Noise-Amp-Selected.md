@@ -26,6 +26,7 @@ Option 1:
         </li>
         <li>High Linearity Module</li>
     </li>
+    </ul>
 </ul>
 
         
