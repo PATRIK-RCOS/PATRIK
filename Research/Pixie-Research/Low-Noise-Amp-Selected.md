@@ -15,11 +15,12 @@
             <li>usually 2.5dB</li>
         </ul>
         </li>
-        <li>Voltage = 3.3-5V
+        <li>Voltage = 3.3-5.5V
         <ul>
             <li>usually 5V</li>
         </ul>
         </li>
+        <li>Current Use = 25mA</li>
         <li>High Linearity Module</li>
     </li>
     </ul>
@@ -31,6 +32,24 @@
 <ul>
     <li>Price: $34.95</li>
     <li>Connectors: SMA, USB</li>
+    <li>Features:
+    <ul>
+        <li>High gain = +20dB</li>
+        ^ this is at specifically 1000 MHz
+        <li>Low Noise Figure = 0.8-1dB
+        <ul>
+            <li>usually 0.9dB</li>
+        </ul>
+        </li>
+        <li>Voltage = 3.3-5.5V
+        <ul>
+            <li>usually 5V</li>
+        </ul>
+        </li>
+        <li>Current Use = 85mA</li>
+        <li>High Linearity Module</li>
+    </li>
+    </ul>
 </ul>
 
 
@@ -48,17 +67,26 @@
          <li>Locate signals that are obstructed or weak</li>
      </ul>
  </li>
+    <li>This part is included in both options for the LNA so not much here to favor one over the other</li>
 </ul>
     </li>
+    <li>The Voltage or supply is the same range of 3.3-5.5V with a typical of 5V so not much to favor one over the other in the section.</li>
 </ul>
-
-  
-### Project Needs
 <ul>
-    <li>10 Meter HF Radio
+    <li>This Project is for a 10 Meter HF Radio
     <ul>
         <li>10 Meters has frequency range of 28.000 MHz - 29.700 MHz</li>
+        ^both options include 28-29.700MHz within their frequency ranges of 50kHz-150MHz and 20MHz-4000MHz
+        ^but since the frequency is 28-29.700 primarily with no need for the extra range of the LNA that goes to 4000MHz
+        ^so it makes more sense for this project to select the LNA for 50kHz-150MHz rather than the 20MHz-4000MHz.
         <li>Functions include both a reciever and transmitter</li>
+        <li>Mobile Operations so portable and not too high power consumption is favorable
+            <ul>
+        <li>the current draw is lower for the LNA for 50kHZ-150MHz at 25mA in comparison to 85mA of the 20MHz-4000MHz LNA.</li>
+        <li>this makes sense as typically the current draw would increase as the frequency range that the LNA serves increases.</li>
+        <li>while this is shown in this example as in most cases, it is most likely a better choice in this project to choose the LNA with the lower current draw to also reduce or not experiance high power consumption in portable operations.</li>
+            </ul>
+        </li>
     </ul>
     </li>
 </ul>
