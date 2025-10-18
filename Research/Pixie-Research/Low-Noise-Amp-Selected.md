@@ -23,10 +23,14 @@
     </li>
 </ul>
 
-  
+        
 2) [Nooelec Lana - Ultra Low-Noise Amplifier (LNA) Module for RF & Software Defined Radio (SDR) with Enclosure & Accessories. Wideband 20MHz-4000MHz Frequency Capability with Bias Tee & USB Power Options](https://www.amazon.com/Nooelec-Lana-Accessories-20MHz-4000MHz-Capability/dp/B07XNLJ9X2/ref=sr_1_3?dib=eyJ2IjoiMSJ9.L5ucGNN3Pdy74YRb2g9q8tZvG8mDnvuTtVVgAgNlx1j55dVgR7DWRaXXZb2k8Py8-mT5AO8e-tPxBRGKUOGsH2loHGIfmgXlRs5FXPDa6TxWlrbYM7-0TCGXYJSkYSdvMqOllgzEIyUvNVaYqk0i-XA1c-qfH8vPfGhOfm9FZH_NlwkXeWLqc7scHCW67s-XTfzqpLvteXbzRenhnK5oPtgqhOwrE2Jq7TmfrLFBt8M.ARBzD2LVDvMWXOdSsFvDBehPtaR6WVheDUoeM-Fmacw&dib_tag=se&keywords=Low+Noise+Amplifier&qid=1760143315&sr=8-3)
-    - Price: $34.95
-    - Connectors: SMA, USB
+<ul>
+    <li>Price: $34.95</li>
+    <li>Connectors: SMA, USB</li>
+</ul>
+
+
   
 ## Reasoning 
 ### Specifications
