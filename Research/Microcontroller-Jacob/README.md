@@ -8,7 +8,10 @@
 * [Research Notes](Microcontroller_DevKit.md)
 #### Decision: [<ins>**STM32H755ZI**</ins>](https://www.st.com/en/microcontrollers-microprocessors/stm32h755zi.html)
 
+## Side Notes:
+* [ATS-20 Microcontroller Information](https://github.com/PATRIK-RCOS/PATRIK/blob/main/Research/Microcontroller-Jacob/ATS-20-microontroller.md)
 
 # Todo:
 * Research how to implement a DDS (direct digital synthesis) module with the STM32
 * Implement a basic UI system with the controller [Xalllle](https://github.com/Xalllle) will eventually give
+
