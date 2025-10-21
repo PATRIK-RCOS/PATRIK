@@ -7,7 +7,7 @@ Arduino Nano v3
 | ------ | ------ |
 | I/O    | 14 pin |
 | Flash  | 32 KB  |
-| EEPROM | 1KB    |
+| EEPROM | 1 KB   |
 | Clock  | 16MHz  |
 
 # Notes
