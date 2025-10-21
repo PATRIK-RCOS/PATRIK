@@ -23,3 +23,5 @@ Arduino Nano v3
     * Mode (switches FM and AM receive)
   * Rotary Encoder
     * Adjusts the frequency per the set step value
+* Output:
+  * 0.96 inch OLED display over SPI (serial peripheral interface)
