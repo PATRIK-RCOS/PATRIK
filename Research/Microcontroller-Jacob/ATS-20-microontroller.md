@@ -25,3 +25,6 @@ Arduino Nano v3
     * Adjusts the frequency per the set step value
 * Output:
   * 0.96 inch OLED display over SPI (serial peripheral interface)
+
+# Notice
+Due to the fact that the ATS-20 is closed source for the microcontroller, I am unable to determine how the microcontroller interfaces with the input and output.
