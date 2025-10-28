@@ -29,3 +29,10 @@
   * Pin 29: Oscillator input
   * Pin 30: Oscillator output
     * Piped back into pin 29 (OSCI) after a filter? (ask)
+  * Keypad button array
+    * Standard button grid array, used on practically all input systems (ex. keyboards)
+    * P90,P91,P92,P93,P94 - Grid x-axis
+    * PB5,PB6,PB7,PC2 - Grid y-axis
+    * Pins used: 1,2,3,4,5,6,7,8,44
+
+
