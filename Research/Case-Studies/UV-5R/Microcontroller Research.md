@@ -21,6 +21,8 @@
   * Manage output (LCD, speaker volume output, etc.)
 
 # EM78P568 Pin Notes
+  * Pin 9: Output to LCD controller register select
+  * Pin 10: Output to LCD controller chip enable pin
   * Pin 16: Output for recieved audio (post-processing?)
   * Pin 17: Input for recieved audio
   * Pin 18: Input for microphone audio
@@ -34,5 +36,4 @@
     * P90,P91,P92,P93,P94 - Grid x-axis
     * PB5,PB6,PB7,PC2 - Grid y-axis
     * Pins used: 1,2,3,4,5,6,7,8,44
-
 
