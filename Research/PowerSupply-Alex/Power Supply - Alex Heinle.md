@@ -57,13 +57,13 @@ Purpose:
 
 Pixie kit power supply techniques.
 
-The pixie kit uses multiple power supply techniques. 
+The pixie kit uses multiple power supply techniques.
 
 First, there is a power input (typically from a battery or ac rectifier) which is connected via pins.
 
 For designs that do not use a battery, ac power is accepted and is rectified on the circuit using a built in bridge rectifier.
 
-For this design, it prevents the system from reverse polarity as well. 
+For this design, it prevents the system from reverse polarity as well.
 
 For designs without a bridge rectifier, a Zener diode is used across the power supply.
 
@@ -71,12 +71,34 @@ This Zener diode allows for transient voltage suppression, with all current goin
 
 
 
-Different components are fed through the bridge rectifier. This includes the oscillator, power amplifier, and audio amplifier. 
+Different components are fed through the bridge rectifier. This includes the oscillator, power amplifier, and audio amplifier.
 
 Since these circuits experience intermittent transients, decoupling capacitors are used to prevent significant voltage drops.
 
 
+UV-5R Power Research:
+The UV-5R uses a 7.4V battery which, when plugged in, is decoupled by four different capacitors in the off state.
 
+When the radio is turned on, a switch closes and two more capacitors are added in parallel to further decouple the signal before entering the linear regulator, which regulates the voltage down to 3.3v.
+
+There are many considerations when making a power supply for a radio, but it ultimately makes sense that a linear regulator is used.
+
+The biggest issue with a linear regulator is that the power dissipation is (Vin-Vout)Iout.
+
+Since the voltage is being roughly halved, the dissipation may be significant especially considering that the power consumption is up to 12.2 watts (meaning that the current drawn is 1.65 amps).
+
+This isn't correct however, since the figure of 12.2 watts includes circuits that are powered directly from the battery supply. 
+
+A generous amount of current for the microcontrollers is around 1 watt, would mean that the current drawn by the logic would be 0.3A, ultimately leading to a dissipation of 1.23 watts.
+
+While not insignificant for this scale, that is a perfectly acceptable draw for many linear regulators and saves a lot of complexity and noise.
+
+A switching regulator could have been used, but would mean a noisier signal with more passive and potentially active components to correct these issues. 
+
+Both the 3.3V and the 7.4V are used extensively throughout the design, and decoupling is critical to preventing unacceptable voltage drop.
+An additional design consideration in the UV-5R is the voltage regulating diodes. Throughout much of the antenna circuit, there are two diodes in parallel. 
+
+The diodes would need to be matched if the purpose of this was to spread current draw equally between the two, otherwise all (or most) current would be dissipated through a single diode.
 
 
 
