@@ -1,7 +1,6 @@
-# Microcontroller
-Teensy 4.1
+# Teensy 4.1 Microcontroller
 
-# Microcontroller Specifications
+## Microcontroller Specifications
 * Microprocessor - ARM Cortex-M7
   * Clock speed: 600 MHz
 * FPU with 32 bit and 64 bit support
