@@ -13,6 +13,7 @@
 
 # Todo:
 * Research how to implement a DDS (direct digital synthesis) module with the STM32
-* Implement a basic UI system with the controller [Xalllle](https://github.com/Xalllle) will eventually give
+* Research, design, and implement a basic UI system
+
 
 
