@@ -1,25 +1,27 @@
 ## Hardware
-Camera (pop-up?)
+Camera (pop-up?) (not this sem)
 
-Shade for display
+Shade for display (not this sem)
 
 Integrated CW key
 
 Headphone Jack
 
-Bluetooth (FT8CN?)
+Bluetooth (FT8CN?) (not this sem)
 
 ## Software
-Waterfall
+Waterfall (not this sem)
 
-DNR
+DNR (not this sem)
 
-SSTV
+SSTV (not this sem)
 
-M17
+M17 (not this sem)
 
-Data transfer over HF
+Data transfer over HF (not this sem)
+
+
 ## Both
 
-Notch (implementation could be either)
+Notch (implementation could be either) (not this sem)
 
