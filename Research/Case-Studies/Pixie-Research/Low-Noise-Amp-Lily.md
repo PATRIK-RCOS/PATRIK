@@ -66,3 +66,13 @@
 - instead of a LNA:
   > a combo mixer and power amplifier make up for it
   > also the chip LM386 in one of the versions uses a Low Voltage Audio Power Amplifier could is a somewhat similar comparison or equivalent
+
+## Sources:
+- [https://www.nooelec.com/store/lana-hf.html?srsltid=AfmBOoodPKeXvRF-rZEIde3_UWVXpkDP4JZu8e0jw68qq3aGLbTXFG1M](https://www.nooelec.com/store/lana-hf.html?srsltid=AfmBOoodPKeXvRF-rZEIde3_UWVXpkDP4JZu8e0jw68qq3aGLbTXFG1M)
+- [https://shop.kuhne-electronic.com/kuhne/en/shop/low-noise-amplifiers/](https://shop.kuhne-electronic.com/kuhne/en/shop/low-noise-amplifiers/)
+- [https://www.qsl.net/va3iul/LNA%20design.pdf](https://www.qsl.net/va3iul/LNA%20design.pdf)
+- [https://blog.minicircuits.com/choosing-an-lna-for-your-receiver-front-end/](https://blog.minicircuits.com/choosing-an-lna-for-your-receiver-front-end/)
+- [https://en.wikipedia.org/wiki/Signal-to-noise_ratio](https://en.wikipedia.org/wiki/Signal-to-noise_ratio)
+- [https://forums.radioreference.com/threads/the-case-for-lna.473332/#:~:text=kellogs%20said:,K](https://forums.radioreference.com/threads/the-case-for-lna.473332/#:~:text=kellogs%20said:,K)
+- [https://www.nooelec.com/store/downloads/dl/file/id/107/product/337/lana_hf_datasheet_revision_1.pdf](https://www.nooelec.com/store/downloads/dl/file/id/107/product/337/lana_hf_datasheet_revision_1.pdf)
+- [https://www.nooelec.com/store/downloads/dl/file/id/92/product/315/lana_datasheet_revision_1.pdf](https://www.nooelec.com/store/downloads/dl/file/id/92/product/315/lana_datasheet_revision_1.pdf)
