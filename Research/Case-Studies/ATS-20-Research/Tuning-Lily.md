@@ -12,3 +12,6 @@
         - uses buttons or dials, in this radio a dial
         - increments/decrements by steps
             - in  this radio the options are 1, 5, and 10kHz
+
+## Sources
+- [https://github.com/Emmemad/ATS-20_Schematic](https://github.com/Emmemad/ATS-20_Schematic)
