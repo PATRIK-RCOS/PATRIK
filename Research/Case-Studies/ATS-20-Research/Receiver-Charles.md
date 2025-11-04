@@ -1,7 +1,8 @@
 # Receiver
 ## Antenna
-An antenna is supplied with the radio, although it is not sufficient enough to cover all HF bands.
+An antenna is supplied with the radio, although it is not sufficient enough to cover all HF bands. I assume this is to combat any loss possible from a connecting coaxial cable, and also to make the assembly process easier.
 This specific antenna is a telescopic antenna that connects directly onto the BNC slot on the radio, functioning as a length-adjustible verical antenna.
+Of course, you could replace this antenna with any other antenna, since the bnc feed is universal.
 
 ## RF Input
 RF input from the antenna is denoted by the Conn_Coax symbol on the right of the schematic, with the outer shield of the coaxial cable going directly to ground. 
