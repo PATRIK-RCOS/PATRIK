@@ -21,10 +21,10 @@
 * Vin: 5v input
 * 0: Unused
 * 1: Unused
-* 2: INPUT: Volume encoder clock pin 
-* 3: INPUT: Volume encoder data pin
-* 4: INPUT: Fine Tune encoder clock pin
-* 5: INPUT: Fine Tune encoder data pin
+* 2: Volume encoder clock pin 
+* 3: Volume encoder data pin
+* 4: Fine Tune encoder clock pin
+* 5: Fine Tune encoder data pin
 * 6: To PCM1808(ADC, analog to digital) OUT pin
   - Digital audio input to the microcontroller
 * 7: Teensy Audio Adapter Tx pin
@@ -41,10 +41,10 @@
   - 74HC125 pin 6 (Channel 2 Output Y)
 * 13: Display Buffer Group:
   - 74HC125 pin 9 (Channel 3 Input A)
-* 14: INPUT: Filter encoder clock pin
-* 15: INPUT: Filter encoder data pin
-* 16: INPUT: Tune encoder clock pin
-* 17: INPUT: Tune encoder data pin
+* 14: Filter encoder clock pin
+* 15: Filter encoder data pin
+* 16: Tune encoder clock pin
+* 17: Tune encoder data pin
 * 18: Teensy Audio Adapter SDA pin and Si5351A (clock generator SDA pin) (Serial data)
   - Connected to a pull up resistor
 * 19: Teensy Audio Adapter SCL pin and Si5351A (clock generator SCL pin) (Serial clock)
@@ -73,10 +73,10 @@
     - DAC Digital audio input pin
 * 33: Unused
 * 34: Unused
-* 35: To Key 2 section (CW)
-* 36: To Key 1 section (CW)
-* 37: To PTT section
-* 38: To Mute section
+* 35: Key 2 input (CW)
+* 36: Key 1 input (CW)
+* 37: PTT input
+* 38: Mute input
 * 39: Tune encoder SW pin
 
 ### Notes
