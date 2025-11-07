@@ -8,3 +8,5 @@ Firmware/Drivers/
 Firmware/*.launch
 Firmware/*.ld
 Firmware/Core/Startup
+Firmware/Core/Inc/stm32h7xx*
+Firmware/Core/Src/stm32h7xx*
