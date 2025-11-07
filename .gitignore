@@ -1,1 +1,10 @@
 *.DS_Store
+
+# STM32 IDE
+Firmware/.metadata/
+Firmware/.settings/
+Firmware/Debug/
+Firmware/Drivers/
+Firmware/*.launch
+Firmware/*.ld
+Firmware/Core/Startup
