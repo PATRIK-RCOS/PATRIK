@@ -10,3 +10,6 @@ Firmware/*.ld
 Firmware/Core/Startup
 Firmware/Core/Inc/stm32h7xx*
 Firmware/Core/Src/stm32h7xx*
+Firmware/Core/Src/syscalls.c
+Firmware/Core/Src/sysmem.c
+Firmware/Core/Src/system_stm32h7xx.c
