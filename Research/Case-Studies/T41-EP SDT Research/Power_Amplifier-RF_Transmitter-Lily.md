@@ -7,7 +7,8 @@
   > mentioned "fuzzy QRP" as can change it
   
 ### Parts:
-- uses 4 IRF510 transistors, heatsink so keeps it from overheating too much
+- uses 4 IRF510 transistors
+- heatsink which keeps it from overheating too much
 - changes most impedances to 50 ohm out
 - voltage requirement is 12 V for 5V DC and 3.3V DC
   > BUT if  want 20 watt for RF power amp then need 25V DC in as well
