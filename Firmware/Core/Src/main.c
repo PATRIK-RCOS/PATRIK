@@ -1,4 +1,3 @@
-/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
@@ -15,53 +14,17 @@
   *
   ******************************************************************************
   */
-/* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
-/* Private includes ----------------------------------------------------------*/
-/* USER CODE BEGIN Includes */
-
-/* USER CODE END Includes */
-
-/* Private typedef -----------------------------------------------------------*/
-/* USER CODE BEGIN PTD */
-
-/* USER CODE END PTD */
-
-/* Private define ------------------------------------------------------------*/
-/* USER CODE BEGIN PD */
-
-/* USER CODE END PD */
-
-/* Private macro -------------------------------------------------------------*/
-/* USER CODE BEGIN PM */
-
-/* USER CODE END PM */
-
-/* Private variables ---------------------------------------------------------*/
-
 COM_InitTypeDef BspCOMInit;
-
 SPI_HandleTypeDef hspi1;
-
-/* USER CODE BEGIN PV */
-
-/* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
-/* USER CODE BEGIN PFP */
-
-/* USER CODE END PFP */
-
-/* Private user code ---------------------------------------------------------*/
-/* USER CODE BEGIN 0 */
-
-/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -69,35 +32,20 @@ static void MX_SPI1_Init(void);
   */
 int main(void)
 {
-
-  /* USER CODE BEGIN 1 */
-
-  /* USER CODE END 1 */
-
   /* MPU Configuration--------------------------------------------------------*/
   MPU_Config();
-
-  /* MCU Configuration--------------------------------------------------------*/
 
   /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
 
-  /* USER CODE BEGIN Init */
-
-  /* USER CODE END Init */
-
   /* Configure the system clock */
   SystemClock_Config();
-
-  /* USER CODE BEGIN SysInit */
-
-  /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
-  /* USER CODE BEGIN 2 */
 
+  /* SOURCE CODE BEGIN */
   ILI9488_Init();
   fillScreen(ILI9488_BLUE);
   for (int i = 0; i < 312; i += 8) {
@@ -108,7 +56,7 @@ int main(void)
 //  drawPixel(150, 16, ILI9488_WHITE);
 //  drawPixel(151, 16, ILI9488_WHITE);
 
-  /* USER CODE END 2 */
+  /* SOURCE CODE END */
 
   /* Initialize leds */
   BSP_LED_Init(LED_GREEN);
@@ -129,16 +77,11 @@ int main(void)
     Error_Handler();
   }
 
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
+  /* USER CODE MAINLOOP */
   while (1)
   {
 
-    /* USER CODE END WHILE */
-
-    /* USER CODE BEGIN 3 */
   }
-  /* USER CODE END 3 */
 }
 
 /**
@@ -207,14 +150,6 @@ void SystemClock_Config(void)
   */
 static void MX_SPI1_Init(void)
 {
-
-  /* USER CODE BEGIN SPI1_Init 0 */
-
-  /* USER CODE END SPI1_Init 0 */
-
-  /* USER CODE BEGIN SPI1_Init 1 */
-
-  /* USER CODE END SPI1_Init 1 */
   /* SPI1 parameter configuration*/
   hspi1.Instance = SPI1;
   hspi1.Init.Mode = SPI_MODE_MASTER;
@@ -242,10 +177,6 @@ static void MX_SPI1_Init(void)
   {
     Error_Handler();
   }
-  /* USER CODE BEGIN SPI1_Init 2 */
-
-  /* USER CODE END SPI1_Init 2 */
-
 }
 
 /**
@@ -256,9 +187,6 @@ static void MX_SPI1_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
-  /* USER CODE BEGIN MX_GPIO_Init_1 */
-
-  /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -284,15 +212,7 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
-
-  /* USER CODE BEGIN MX_GPIO_Init_2 */
-
-  /* USER CODE END MX_GPIO_Init_2 */
 }
-
-/* USER CODE BEGIN 4 */
-
-/* USER CODE END 4 */
 
  /* MPU Configuration */
 
@@ -329,13 +249,12 @@ void MPU_Config(void)
   */
 void Error_Handler(void)
 {
-  /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
+  /* User can add their own implementation to report the HAL error return state */
   __disable_irq();
   while (1)
   {
+
   }
-  /* USER CODE END Error_Handler_Debug */
 }
 #ifdef USE_FULL_ASSERT
 /**
