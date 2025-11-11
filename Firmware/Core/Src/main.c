@@ -100,6 +100,13 @@ int main(void)
 
   ILI9488_Init();
   fillScreen(ILI9488_BLUE);
+  for (int i = 0; i < 312; i += 8) {
+	  ILI9488_printText("THIS IS MY TEXT now; test 123!", i, 0, ILI9488_WHITE, ILI9488_BLUE, 1);
+  }
+//  drawPixel(150, 15, ILI9488_WHITE);
+//  drawPixel(151, 15, ILI9488_WHITE);
+//  drawPixel(150, 16, ILI9488_WHITE);
+//  drawPixel(151, 16, ILI9488_WHITE);
 
   /* USER CODE END 2 */
 

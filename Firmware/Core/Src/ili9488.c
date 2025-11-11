@@ -610,7 +610,9 @@ void drawPixel(int16_t x, int16_t y, uint16_t color)
 	if ((x < 0) || (x >= width) || (y < 0) || (y >= height))
 		return;
 
-	setAddrWindow(x, y, x + 1, y + 1);
+	// Subtract from 480 is to change the orientation of the display
+	//   - Set the 0 value from the right side of the display to the left
+	setAddrWindow(x, 480 - y, x + 1, 480 - y + 1);
 	HAL_GPIO_WritePin(tftDC_GPIO, tftDC_PIN, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(tftCS_GPIO, tftCS_PIN, GPIO_PIN_RESET);
 
@@ -840,13 +842,13 @@ void drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color, uint16_t bg
 
   if(!_cp437 && (c >= 176)) c++; // Handle 'classic' charset behavior
 
-  for (int8_t i=0; i<6; i++ ) {
+  for (int8_t j=0; j<6; j++ ) {
     uint8_t line;
-    if (i == 5)
+    if (j == 5)
       line = 0x0;
     else
-      line = pgm_read_byte(font1+(c*5)+i);
-    for (int8_t j = 0; j<8; j++) {
+      line = pgm_read_byte(font1+(c*5)+j);
+    for (int8_t i = 0; i<8; i++) {
       if (line & 0x1) {
         if (size == 1) // default size
         	drawPixel(x+i, y+j, color);
@@ -871,7 +873,7 @@ void ILI9488_printText(char text[], int16_t x, int16_t y, uint16_t color, uint16
 
 	for(uint16_t i=0; i<40 && text[i]!=NULL; i++)
 	{
-		drawChar(x+(offset*i), y, text[i],color,bg,size);
+		drawChar(x, y+(offset*i), text[i],color,bg,size);
 	}
 }
 void testLines(uint8_t color)
