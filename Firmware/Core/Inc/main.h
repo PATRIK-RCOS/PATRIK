@@ -36,6 +36,7 @@ extern "C" {
 /* USER CODE BEGIN Includes */
 
 #include "ili9488.h"
+#include "oscillator.h"
 
 /* USER CODE END Includes */
 
