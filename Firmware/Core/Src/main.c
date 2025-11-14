@@ -47,22 +47,48 @@ int mode = 0;
 int function = 0;
 
 void updateFrequency(float frq) {
+	// Update global variable
+	frequency = frq;
+
+	// Set DDS
+
+	// Update display
 
 }
 
 void updateVolume(int vol) {
+	// Update global variable
+	volume = vol;
+
+	// Update audio amp
+
+	// Update display
 
 }
 
 void updateStep(float stp) {
+	// Update global variable
+	step = stp;
+
+	// Update display
 
 }
 
 void updateMode(int md) {
+	// Update global variable
+	mode = md;
+
+	// Set something to change the modulation mode
+
+	// Update display
 
 }
 
 void updateFunction(int funct) {
+	// Update global variable
+	function = funct;
+
+	// Update display
 
 }
 
