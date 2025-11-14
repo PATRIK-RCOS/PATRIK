@@ -5,12 +5,8 @@
   ******************************************************************************
   * @attention
   *
-  * Copyright (c) 2025 STMicroelectronics.
-  * All rights reserved.
-  *
   * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this software component.
-  * If no LICENSE file comes with this software, it is provided AS-IS.
+  * in the root directory of this repository.
   *
   ******************************************************************************
   */
@@ -26,56 +22,84 @@ static void MPU_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 
+/* Global Variables */
+float frequency = 0; // in MHz
+int volume = 0; // 0-100
+float step = 0; // in KHz
+// State variable for mode
+//   0: AM
+//   1: USB
+//   2: LSB
+//   3: FM
+int mode = 0;
+// State variable for knob function
+//   0: Tune
+//   1: Step
+//   2: Volume
+int function = 0;
+
+void updateFrequency(float frq) {
+
+}
+
+void updateVolume(int vol) {
+
+}
+
+void updateStep(float stp) {
+
+}
+
+void updateMode(int md) {
+
+}
+
+void updateFunction(int funct) {
+
+}
+
+void refreshDisplay() {
+	// Fill background
+	fillScreen(ILI9488_BLUE);
+
+	// Write static text
+
+	// Write dynamic values
+	updateFrequency(frequency);
+	updateVolume(volume);
+	updateStep(step);
+	updateMode(mode);
+	updateFunction(function);
+}
+
 /**
   * @brief  The application entry point.
   * @retval int
   */
 int main(void)
 {
-  /* MPU Configuration--------------------------------------------------------*/
+  /* Configuration and initialization of STM hardware */
   MPU_Config();
-
-  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
-
-  /* Configure the system clock */
   SystemClock_Config();
-
-  /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
-
-  /* SOURCE CODE BEGIN */
-  ILI9488_Init();
-  fillScreen(ILI9488_BLUE);
-  for (int i = 0; i < 312; i += 8) {
-	  ILI9488_printText("THIS IS MY TEXT now; test 123!", i, 0, ILI9488_WHITE, ILI9488_BLUE, 1);
-  }
-//  drawPixel(150, 15, ILI9488_WHITE);
-//  drawPixel(151, 15, ILI9488_WHITE);
-//  drawPixel(150, 16, ILI9488_WHITE);
-//  drawPixel(151, 16, ILI9488_WHITE);
-
-  /* SOURCE CODE END */
-
-  /* Initialize leds */
   BSP_LED_Init(LED_GREEN);
   BSP_LED_Init(LED_YELLOW);
   BSP_LED_Init(LED_RED);
-
-  /* Initialize USER push-button, will be used to trigger an interrupt each time it's pressed.*/
   BSP_PB_Init(BUTTON_USER, BUTTON_MODE_EXTI);
-
-  /* Initialize COM1 port (115200, 8 bits (7-bit data + 1 stop bit), no parity */
   BspCOMInit.BaudRate   = 115200;
   BspCOMInit.WordLength = COM_WORDLENGTH_8B;
   BspCOMInit.StopBits   = COM_STOPBITS_1;
   BspCOMInit.Parity     = COM_PARITY_NONE;
   BspCOMInit.HwFlowCtl  = COM_HWCONTROL_NONE;
-  if (BSP_COM_Init(COM1, &BspCOMInit) != BSP_ERROR_NONE)
-  {
+  if (BSP_COM_Init(COM1, &BspCOMInit) != BSP_ERROR_NONE) {
     Error_Handler();
   }
+
+  /* Initialization of display and UI */
+  ILI9488_Init();
+  refreshDisplay();
 
   /* USER CODE MAINLOOP */
   while (1)
