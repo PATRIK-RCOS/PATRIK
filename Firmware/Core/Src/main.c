@@ -23,9 +23,17 @@ static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 
 /* Global Variables */
-float frequency = 0; // in MHz
+float frequency = 28.000; // in MHz
 int volume = 0; // 0-100
-float step = 0; // in KHz
+// Step variable
+// 1    KHz
+// 5    KHz
+// 10   KHz
+// 25   KHz
+// 100  KHz
+// 250  KHz
+// 1000 KHz
+float step = 1; // in KHz
 // State variable for mode
 //   0: AM
 //   1: USB
