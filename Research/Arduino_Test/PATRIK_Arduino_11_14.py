@@ -79,8 +79,6 @@ void loop(){
   // Check if the encoder position has changed
   int currentEncoderPosition = encoder.getPosition();
   if (abs(lastEncoderPosition - currentEncoderPosition) == 1) {
-    Serial.print(lastEncoderPosition);
-    Serial.print(currentEncoderPosition);
     knobCounter += (currentEncoderPosition - lastEncoderPosition);
     frequency += (currentEncoderPosition - lastEncoderPosition) * STEP;
     
