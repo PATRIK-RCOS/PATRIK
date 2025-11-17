@@ -45,6 +45,9 @@ int mode = 0;
 //   1: Step
 //   2: Volume
 int function = 0;
+// Display variables
+uint16_t foreground = ILI9488_WHITE;
+uint16_t background = ILI9488_BLUE;
 
 void updateFrequency(float frq) {
 	// Update global variable
@@ -53,7 +56,7 @@ void updateFrequency(float frq) {
 	// Set DDS
 
 	// Update display
-
+	ILI9488_printText("646464/.b", 160, 0, foreground, background, 3);
 }
 
 void updateVolume(int vol) {
