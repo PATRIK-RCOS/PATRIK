@@ -1,0 +1,15 @@
+LTspice 24.1.10 for Windows
+Circuit: C:\Users\bruh\Documents\GitHub\PATRIK\Hardware\LTSpice Schematics\Class_C_Amplifier_Demo.net
+Start Time: Tue Nov 18 15:58:59 2025
+solver = Normal
+Maximum thread count: 16
+tnom = 27
+temp = 27
+method = modified trap
+Direct Newton iteration for .op point succeeded.
+Total elapsed time: 0.054 seconds.
+
+Files loaded:
+C:\Users\bruh\Documents\GitHub\PATRIK\Hardware\LTSpice Schematics\Class_C_Amplifier_Demo.net
+C:\Users\bruh\AppData\Local\LTspice\lib\cmp\standard.bjt
+
