@@ -1,3 +1,4 @@
+/* USER CODE BEGIN Header */
 /**
   ******************************************************************************
   * @file           : main.c
@@ -5,109 +6,62 @@
   ******************************************************************************
   * @attention
   *
+  * Copyright (c) 2025 STMicroelectronics.
+  * All rights reserved.
+  *
   * This software is licensed under terms that can be found in the LICENSE file
-  * in the root directory of this repository.
+  * in the root directory of this software component.
+  * If no LICENSE file comes with this software, it is provided AS-IS.
   *
   ******************************************************************************
   */
+/* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 
+/* Private includes ----------------------------------------------------------*/
+/* USER CODE BEGIN Includes */
+
+/* USER CODE END Includes */
+
+/* Private typedef -----------------------------------------------------------*/
+/* USER CODE BEGIN PTD */
+
+/* USER CODE END PTD */
+
+/* Private define ------------------------------------------------------------*/
+/* USER CODE BEGIN PD */
+
+/* USER CODE END PD */
+
+/* Private macro -------------------------------------------------------------*/
+/* USER CODE BEGIN PM */
+
+/* USER CODE END PM */
+
+/* Private variables ---------------------------------------------------------*/
+
 COM_InitTypeDef BspCOMInit;
+
 SPI_HandleTypeDef hspi1;
+
+/* USER CODE BEGIN PV */
+
+/* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
+/* USER CODE BEGIN PFP */
+void app_main(void);
+/* USER CODE END PFP */
 
-/* Global Variables */
-float frequency = 28.000; // in MHz
-int volume = 0; // 0-100
-// Step variable
-// 1    KHz
-// 5    KHz
-// 10   KHz
-// 25   KHz
-// 100  KHz
-// 250  KHz
-// 1000 KHz
-float step = 1; // in KHz
-// State variable for mode
-//   0: AM
-//   1: USB
-//   2: LSB
-//   3: FM
-int mode = 0;
-// State variable for knob function
-//   0: Tune
-//   1: Step
-//   2: Volume
-int function = 0;
-// Display variables
-uint16_t foreground = ILI9488_WHITE;
-uint16_t background = ILI9488_BLUE;
+/* Private user code ---------------------------------------------------------*/
+/* USER CODE BEGIN 0 */
 
-void updateFrequency(float frq) {
-	// Update global variable
-	frequency = frq;
-
-	// Set DDS
-
-	// Update display
-	ILI9488_printText("646464/.b", 160, 0, foreground, background, 3);
-}
-
-void updateVolume(int vol) {
-	// Update global variable
-	volume = vol;
-
-	// Update audio amp
-
-	// Update display
-
-}
-
-void updateStep(float stp) {
-	// Update global variable
-	step = stp;
-
-	// Update display
-
-}
-
-void updateMode(int md) {
-	// Update global variable
-	mode = md;
-
-	// Set something to change the modulation mode
-
-	// Update display
-
-}
-
-void updateFunction(int funct) {
-	// Update global variable
-	function = funct;
-
-	// Update display
-
-}
-
-void refreshDisplay() {
-	// Fill background
-	fillScreen(ILI9488_BLUE);
-
-	// Write static text
-
-	// Write dynamic values
-	updateFrequency(frequency);
-	updateVolume(volume);
-	updateStep(step);
-	updateMode(mode);
-	updateFunction(function);
-}
+/* USER CODE END 0 */
 
 /**
   * @brief  The application entry point.
@@ -115,34 +69,67 @@ void refreshDisplay() {
   */
 int main(void)
 {
-  /* Configuration and initialization of STM hardware */
+
+  /* USER CODE BEGIN 1 */
+
+  /* USER CODE END 1 */
+
+  /* MPU Configuration--------------------------------------------------------*/
   MPU_Config();
+
+  /* MCU Configuration--------------------------------------------------------*/
+
+  /* Reset of all peripherals, Initializes the Flash interface and the Systick. */
   HAL_Init();
+
+  /* USER CODE BEGIN Init */
+
+  /* USER CODE END Init */
+
+  /* Configure the system clock */
   SystemClock_Config();
+
+  /* USER CODE BEGIN SysInit */
+
+  /* USER CODE END SysInit */
+
+  /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
+  /* USER CODE BEGIN 2 */
+
+  /* USER CODE END 2 */
+
+  /* Initialize leds */
   BSP_LED_Init(LED_GREEN);
   BSP_LED_Init(LED_YELLOW);
   BSP_LED_Init(LED_RED);
+
+  /* Initialize USER push-button, will be used to trigger an interrupt each time it's pressed.*/
   BSP_PB_Init(BUTTON_USER, BUTTON_MODE_EXTI);
+
+  /* Initialize COM1 port (115200, 8 bits (7-bit data + 1 stop bit), no parity */
   BspCOMInit.BaudRate   = 115200;
   BspCOMInit.WordLength = COM_WORDLENGTH_8B;
   BspCOMInit.StopBits   = COM_STOPBITS_1;
   BspCOMInit.Parity     = COM_PARITY_NONE;
   BspCOMInit.HwFlowCtl  = COM_HWCONTROL_NONE;
-  if (BSP_COM_Init(COM1, &BspCOMInit) != BSP_ERROR_NONE) {
+  if (BSP_COM_Init(COM1, &BspCOMInit) != BSP_ERROR_NONE)
+  {
     Error_Handler();
   }
 
-  /* Initialization of display and UI */
-  ILI9488_Init();
-  refreshDisplay();
-
-  /* USER CODE MAINLOOP */
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
+  app_main();
   while (1)
   {
 
+    /* USER CODE END WHILE */
+
+    /* USER CODE BEGIN 3 */
   }
+  /* USER CODE END 3 */
 }
 
 /**
@@ -211,6 +198,14 @@ void SystemClock_Config(void)
   */
 static void MX_SPI1_Init(void)
 {
+
+  /* USER CODE BEGIN SPI1_Init 0 */
+
+  /* USER CODE END SPI1_Init 0 */
+
+  /* USER CODE BEGIN SPI1_Init 1 */
+
+  /* USER CODE END SPI1_Init 1 */
   /* SPI1 parameter configuration*/
   hspi1.Instance = SPI1;
   hspi1.Init.Mode = SPI_MODE_MASTER;
@@ -238,6 +233,10 @@ static void MX_SPI1_Init(void)
   {
     Error_Handler();
   }
+  /* USER CODE BEGIN SPI1_Init 2 */
+
+  /* USER CODE END SPI1_Init 2 */
+
 }
 
 /**
@@ -248,6 +247,9 @@ static void MX_SPI1_Init(void)
 static void MX_GPIO_Init(void)
 {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
+  /* USER CODE BEGIN MX_GPIO_Init_1 */
+
+  /* USER CODE END MX_GPIO_Init_1 */
 
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOC_CLK_ENABLE();
@@ -267,13 +269,27 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(TFT_CS_GPIO_Port, &GPIO_InitStruct);
 
+  /*Configure GPIO pins : FUNCT_BTN_Pin MODE_BTN_Pin MULT_KNOB_Pin */
+  GPIO_InitStruct.Pin = FUNCT_BTN_Pin|MODE_BTN_Pin|MULT_KNOB_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_IT_RISING;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
   /*Configure GPIO pins : TFT_DC_Pin TFT_RST_Pin */
   GPIO_InitStruct.Pin = TFT_DC_Pin|TFT_RST_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
   HAL_GPIO_Init(GPIOD, &GPIO_InitStruct);
+
+  /* USER CODE BEGIN MX_GPIO_Init_2 */
+
+  /* USER CODE END MX_GPIO_Init_2 */
 }
+
+/* USER CODE BEGIN 4 */
+
+/* USER CODE END 4 */
 
  /* MPU Configuration */
 
@@ -310,12 +326,13 @@ void MPU_Config(void)
   */
 void Error_Handler(void)
 {
-  /* User can add their own implementation to report the HAL error return state */
+  /* USER CODE BEGIN Error_Handler_Debug */
+  /* User can add his own implementation to report the HAL error return state */
   __disable_irq();
   while (1)
   {
-
   }
+  /* USER CODE END Error_Handler_Debug */
 }
 #ifdef USE_FULL_ASSERT
 /**

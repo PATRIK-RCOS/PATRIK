@@ -35,7 +35,6 @@ extern "C" {
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
-#include "ili9488.h"
 #include "oscillator.h"
 
 /* USER CODE END Includes */
@@ -69,6 +68,12 @@ void Error_Handler(void);
 #define SWCLK_GPIO_Port GPIOA
 #define TFT_CS_Pin GPIO_PIN_15
 #define TFT_CS_GPIO_Port GPIOA
+#define FUNCT_BTN_Pin GPIO_PIN_0
+#define FUNCT_BTN_GPIO_Port GPIOD
+#define MODE_BTN_Pin GPIO_PIN_1
+#define MODE_BTN_GPIO_Port GPIOD
+#define MULT_KNOB_Pin GPIO_PIN_2
+#define MULT_KNOB_GPIO_Port GPIOD
 #define TFT_DC_Pin GPIO_PIN_3
 #define TFT_DC_GPIO_Port GPIOD
 #define TFT_RST_Pin GPIO_PIN_4
