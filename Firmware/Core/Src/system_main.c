@@ -49,13 +49,13 @@ uint16_t background = ILI9488_BLUE;
  *
  * Each index corresponds to the matching state variable value
  */
-char modes[] = {
+char* modes[] = {
 		"AM",
 		"USB",
 		"LSB",
 		"FM"
 };
-char functions[] = {
+char* functions[] = {
 		"Tune",
 		"Step",
 		"Vol"
