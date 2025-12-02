@@ -73,6 +73,11 @@ void app_main(void) {
 	/* Initialization of display and UI */
 	ILI9488_Init();
 	refreshDisplay();
+
+	/* True main loop */
+	while(1) {
+
+	}
 }
 
 /*
