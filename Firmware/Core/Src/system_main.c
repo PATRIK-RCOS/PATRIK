@@ -147,6 +147,7 @@ void updateStep(float stp, int ud) {
 
 }
 
+// Previous mode is cleared from display before this is called
 void updateMode(int md) {
 	// Update global variable
 	mode = md;
@@ -157,6 +158,7 @@ void updateMode(int md) {
 	ILI9488_printText(modes[mode], 20, 440, foreground, background, 3);
 }
 
+// Previous function is cleared from display before this is called
 void updateFunction(int funct) {
 	// Update global variable
 	function = funct;
