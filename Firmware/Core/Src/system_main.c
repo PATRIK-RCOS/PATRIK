@@ -83,19 +83,31 @@ void app_main(void) {
 /*
  * Component Update Functions
  */
-void updateFrequency(float frq) {
+
+/* This section applies to the three functions below: updateFrequency, updateVolume and updateStep
+ * -----------------------------------------------------------------------------
+ * Parameter UD is a logical boolean to indicate weather the value should be incremented or decremented
+ * False(0): Down
+ * True(1): Up
+ */
+
+void updateFrequency(float frq, int ud) {
 	// Update global variable
-	frequency = frq;
+	frequency = ud ? frq+step : frq-step;
 
 	// Set DDS
 
-	// Update display
+	// Convert frequency to string and update display
 	ILI9488_printText("XXX.XXX", 160, 0, foreground, background, 3);
 }
 
-void updateVolume(int vol) {
+void updateVolume(int vol, int ud) {
 	// Update global variable
-	volume = vol;
+	volume = ud ? vol+1 : vol-1;
+
+	// Check bounds
+	if (volume > 100) volume = 100;
+	if (volume < 0) volume = 0;
 
 	// Update audio amp
 
@@ -103,7 +115,31 @@ void updateVolume(int vol) {
 
 }
 
-void updateStep(float stp) {
+void updateStep(float stp, int ud) {
+	// Update temp step based on UD
+	switch (stp) {
+	case 1:
+		stp = ud ? 5 : 1;
+		break;
+	case 5:
+		stp = ud ? 10: 1;
+		break;
+	case 10:
+		stp = ud ? 25: 5;
+		break;
+	case 25:
+		stp = ud ? 100 : 10;
+		break;
+	case 100:
+		stp = ud ? 250 : 25;
+		break;
+	case 250:
+		stp = ud ? 1000 : 100;
+		break;
+	case 1000:
+		stp = ud ? 1000 : 250;
+		break;
+	}
 	// Update global variable
 	step = stp;
 
