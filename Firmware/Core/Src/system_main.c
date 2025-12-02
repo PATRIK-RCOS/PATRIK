@@ -28,7 +28,7 @@ int volume = 0; // 0-100
 // 100  KHz
 // 250  KHz
 // 1000 KHz
-float step = 1; // in KHz
+int step = 1; // in KHz
 // State variable for mode
 //   0: AM
 //   1: USB
@@ -61,6 +61,15 @@ char* functions[] = {
 		"Vol"
 };
 
+/* This section applies to the functions below with the argument `ud` of type `upDown_t`
+ * -----------------------------------------------------------------------------
+ * Parameter UD is a logical boolean to indicate weather the value should be incremented or decremented
+ * False(0): Down
+ * True(1): Up
+ * Extra(2): Do nothing
+ */
+typedef enum upDown {UD_UP, UD_DOWN, UD_NOTHING} upDown_t;
+
 /*
  * Forward Declarations
  */
@@ -84,16 +93,9 @@ void app_main(void) {
  * Component Update Functions
  */
 
-/* This section applies to the three functions below: updateFrequency, updateVolume and updateStep
- * -----------------------------------------------------------------------------
- * Parameter UD is a logical boolean to indicate weather the value should be incremented or decremented
- * False(0): Down
- * True(1): Up
- */
-
-void updateFrequency(float frq, int ud) {
+void updateFrequency(float frq, upDown_t ud) {
 	// Update global variable
-	frequency = ud ? frq+step : frq-step;
+	if (ud != UD_NOTHING) frequency = ud ? frq+step : frq-step;
 
 	// Set DDS
 
@@ -101,9 +103,9 @@ void updateFrequency(float frq, int ud) {
 	ILI9488_printText("XXX.XXX", 160, 0, foreground, background, 3);
 }
 
-void updateVolume(int vol, int ud) {
+void updateVolume(int vol, upDown_t ud) {
 	// Update global variable
-	volume = ud ? vol+1 : vol-1;
+	if (ud != UD_NOTHING) volume = ud ? vol+1 : vol-1;
 
 	// Check bounds
 	if (volume > 100) volume = 100;
@@ -115,30 +117,32 @@ void updateVolume(int vol, int ud) {
 
 }
 
-void updateStep(float stp, int ud) {
+void updateStep(int stp, upDown_t ud) {
 	// Update temp step based on UD
-	switch (stp) {
-	case 1:
-		stp = ud ? 5 : 1;
-		break;
-	case 5:
-		stp = ud ? 10: 1;
-		break;
-	case 10:
-		stp = ud ? 25: 5;
-		break;
-	case 25:
-		stp = ud ? 100 : 10;
-		break;
-	case 100:
-		stp = ud ? 250 : 25;
-		break;
-	case 250:
-		stp = ud ? 1000 : 100;
-		break;
-	case 1000:
-		stp = ud ? 1000 : 250;
-		break;
+	if (ud != UD_NOTHING) {
+		switch (stp) {
+		case 1:
+			stp = ud ? 5 : 1;
+			break;
+		case 5:
+			stp = ud ? 10: 1;
+			break;
+		case 10:
+			stp = ud ? 25: 5;
+			break;
+		case 25:
+			stp = ud ? 100 : 10;
+			break;
+		case 100:
+			stp = ud ? 250 : 25;
+			break;
+		case 250:
+			stp = ud ? 1000 : 100;
+			break;
+		case 1000:
+			stp = ud ? 1000 : 250;
+			break;
+		}
 	}
 	// Update global variable
 	step = stp;
@@ -180,9 +184,9 @@ void refreshDisplay(void) {
 
 
 	// Write dynamic values
-	updateFrequency(frequency);
-	updateVolume(volume);
-	updateStep(step);
+	updateFrequency(frequency, UD_NOTHING);
+	updateVolume(volume, UD_NOTHING);
+	updateStep(step, UD_NOTHING);
 	updateMode(mode);
 	updateFunction(function);
 }
