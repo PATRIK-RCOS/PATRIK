@@ -103,9 +103,9 @@ void updateFrequency(float frq, upDown_t ud) {
 	// Update global variable
 	if (ud != UD_NOTHING) frequency = ud ? frq+step : frq-step;
 
-	// Set DDS
+	// TODO: Set DDS
 
-	// Convert frequency to string and update display
+	// TODO: Convert frequency to string and update display
 	ILI9488_printText("XXX.XXX", 160, 0, foreground, background, 3);
 }
 
@@ -117,9 +117,9 @@ void updateVolume(int vol, upDown_t ud) {
 	if (volume > 100) volume = 100;
 	if (volume < 0) volume = 0;
 
-	// Update audio amp
+	// TODO: Update audio amp
 
-	// Update display
+	// TODO: Update display
 
 }
 
@@ -153,7 +153,7 @@ void updateStep(int stp, upDown_t ud) {
 	// Update global variable
 	step = stp;
 
-	// Update display
+	// TODO: Update display
 
 }
 
@@ -162,7 +162,7 @@ void updateMode(modes_t md) {
 	// Update global variable
 	mode = md;
 
-	// Set something to change the modulation mode
+	// TODO: Set something to change the modulation mode
 
 	// Update display
 	ILI9488_printText(modes[mode], 20, 440, foreground, background, 3);
@@ -182,7 +182,6 @@ void refreshDisplay(void) {
 	fillScreen(ILI9488_BLUE);
 
 	// Write static text
-
 	ILI9488_printText("Vol: ", 0, 400, foreground, background, 3);
 	ILI9488_printText("Step: ", 300, 400, foreground, background, 3);
 	ILI9488_printText("Mode: ", 20, 400, foreground, background, 3);
