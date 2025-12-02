@@ -298,7 +298,17 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	switch (GPIO_Pin) {
+	case FUNCT_BTN_Pin:
+		break;
+	case MODE_BTN_Pin:
+		break;
+	default:
+		__NOP();
+		break;
+	}
+}
 /* USER CODE END 4 */
 
  /* MPU Configuration */

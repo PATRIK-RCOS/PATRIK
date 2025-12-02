@@ -47,7 +47,7 @@ uint16_t background = ILI9488_BLUE;
 /*
  * Forward Declarations
  */
-void refreshDisplay();
+void refreshDisplay(void);
 
 /*
  * The True Main Function
@@ -107,7 +107,7 @@ void updateFunction(int funct) {
 
 }
 
-void refreshDisplay() {
+void refreshDisplay(void) {
 	// Fill background
 	fillScreen(ILI9488_BLUE);
 
@@ -130,3 +130,18 @@ void refreshDisplay() {
 /*
  * Interrupt Handlers
  */
+void mode_toggle(void) {
+	if (++mode > 3) {
+		mode = 0;
+	}
+
+	updateMode(mode);
+}
+
+void funct_toggle(void) {
+	if (++function > 2) {
+		function = 0;
+	}
+
+	updateFunction(function);
+}

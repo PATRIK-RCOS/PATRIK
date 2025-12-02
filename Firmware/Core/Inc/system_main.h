@@ -15,4 +15,8 @@
 #include <stdint.h>
 #include "ili9488.h"
 
+/*
+ * Prototypes for External Use
+ */
+
 #endif /* INC_SYSTEM_MAIN_H_ */
