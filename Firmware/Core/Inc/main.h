@@ -70,10 +70,13 @@ void Error_Handler(void);
 #define TFT_CS_GPIO_Port GPIOA
 #define FUNCT_BTN_Pin GPIO_PIN_0
 #define FUNCT_BTN_GPIO_Port GPIOD
+#define FUNCT_BTN_EXTI_IRQn EXTI0_IRQn
 #define MODE_BTN_Pin GPIO_PIN_1
 #define MODE_BTN_GPIO_Port GPIOD
+#define MODE_BTN_EXTI_IRQn EXTI1_IRQn
 #define MULT_KNOB_Pin GPIO_PIN_2
 #define MULT_KNOB_GPIO_Port GPIOD
+#define MULT_KNOB_EXTI_IRQn EXTI2_IRQn
 #define TFT_DC_Pin GPIO_PIN_3
 #define TFT_DC_GPIO_Port GPIOD
 #define TFT_RST_Pin GPIO_PIN_4
