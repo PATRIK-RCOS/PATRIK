@@ -148,17 +148,23 @@ void refreshDisplay(void) {
  * Interrupt Handlers
  */
 void mode_toggle(void) {
+	// Clear previous displayed mode
+	ILI9488_printText(modes[mode], 20, 440, background, background, 3);
+
+	// Update mode
 	if (++mode > 3) {
 		mode = 0;
 	}
-
 	updateMode(mode);
 }
 
 void funct_toggle(void) {
+	// Clear previous displayed function
+	ILI9488_printText(functions[function], 280, 440, background, background, 3);
+
+	// Update function
 	if (++function > 2) {
 		function = 0;
 	}
-
 	updateFunction(function);
 }
