@@ -6,7 +6,7 @@
  *
  * Description
  * ------------
- * split from main.c to avoid erraneous comment generation
+ * split from main.c to avoid erroneous comment generation
  *
  */
 
