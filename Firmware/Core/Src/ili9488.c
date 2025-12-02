@@ -871,7 +871,7 @@ void ILI9488_printText(char text[], int16_t x, int16_t y, uint16_t color, uint16
 	int16_t offset;
 	offset = size*6;
 
-	for(uint16_t i=0; i<40 && text[i]!=NULL; i++)
+	for(uint16_t i=0; i < 40 && text[i] != 0; i++)
 	{
 		drawChar(x, y+(offset*i), text[i],color,bg,size);
 	}
@@ -879,7 +879,6 @@ void ILI9488_printText(char text[], int16_t x, int16_t y, uint16_t color, uint16
 void testLines(uint8_t color)
 {
 
-	unsigned long start, t;
 	int x1, y1, x2, y2, w = width, h = height;
 	fillScreen(ILI9488_BLACK);
 

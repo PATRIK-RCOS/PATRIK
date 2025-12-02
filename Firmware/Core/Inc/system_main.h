@@ -12,7 +12,7 @@
  * Header Inclusions
  */
 #include <stdio.h>
-#include <stdint.h>1
+#include <stdint.h>
 #include "ili9488.h"
 
 #endif /* INC_SYSTEM_MAIN_H_ */
