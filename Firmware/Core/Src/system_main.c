@@ -45,6 +45,23 @@ uint16_t foreground = ILI9488_WHITE;
 uint16_t background = ILI9488_BLUE;
 
 /*
+ * Global Message Variables
+ *
+ * Each index corresponds to the matching state variable value
+ */
+char modes[] = {
+		"AM",
+		"USB",
+		"LSB",
+		"FM"
+};
+char functions[] = {
+		"Tune",
+		"Step",
+		"Vol"
+};
+
+/*
  * Forward Declarations
  */
 void refreshDisplay(void);
@@ -96,7 +113,7 @@ void updateMode(int md) {
 	// Set something to change the modulation mode
 
 	// Update display
-
+	ILI9488_printText(modes[mode], 20, 440, foreground, background, 3);
 }
 
 void updateFunction(int funct) {
@@ -104,7 +121,7 @@ void updateFunction(int funct) {
 	function = funct;
 
 	// Update display
-
+	ILI9488_printText(functions[function], 280, 440, foreground, background, 3);
 }
 
 void refreshDisplay(void) {
