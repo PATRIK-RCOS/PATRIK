@@ -16,6 +16,21 @@
 #include "system_main.h"
 
 /*
+ * Enums
+ */
+typedef enum modesType {MODE_AM, MODE_USB, MODE_LSB, MODE_FM} modes_t;
+typedef enum functionsType {FUNC_TUNE, FUNC_STEP, FUNC_VOL} functions_t;
+
+/* This section applies to the functions below with the argument `ud` of type `upDown_t`
+ * -----------------------------------------------------------------------------
+ * Parameter UD is a logical boolean to indicate weather the value should be incremented or decremented
+ * False(0): Down
+ * True(1): Up
+ * Extra(2): Do nothing
+ */
+typedef enum upDown {UD_UP, UD_DOWN, UD_NOTHING} upDown_t;
+
+/*
  * Global Variables
  */
 float frequency = 28.000; // in MHz
@@ -34,12 +49,12 @@ int step = 1; // in KHz
 //   1: USB
 //   2: LSB
 //   3: FM
-int mode = 0;
+modes_t mode = MODE_USB;
 // State variable for knob function
 //   0: Tune
 //   1: Step
 //   2: Volume
-int function = 0;
+functions_t function = FUNC_TUNE;
 // Display variables
 uint16_t foreground = ILI9488_WHITE;
 uint16_t background = ILI9488_BLUE;
@@ -60,15 +75,6 @@ char* functions[] = {
 		"Step",
 		"Vol"
 };
-
-/* This section applies to the functions below with the argument `ud` of type `upDown_t`
- * -----------------------------------------------------------------------------
- * Parameter UD is a logical boolean to indicate weather the value should be incremented or decremented
- * False(0): Down
- * True(1): Up
- * Extra(2): Do nothing
- */
-typedef enum upDown {UD_UP, UD_DOWN, UD_NOTHING} upDown_t;
 
 /*
  * Forward Declarations
@@ -152,7 +158,7 @@ void updateStep(int stp, upDown_t ud) {
 }
 
 // Previous mode is cleared from display before this is called
-void updateMode(int md) {
+void updateMode(modes_t md) {
 	// Update global variable
 	mode = md;
 
@@ -163,7 +169,7 @@ void updateMode(int md) {
 }
 
 // Previous function is cleared from display before this is called
-void updateFunction(int funct) {
+void updateFunction(functions_t funct) {
 	// Update global variable
 	function = funct;
 
