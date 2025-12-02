@@ -301,8 +301,10 @@ static void MX_GPIO_Init(void)
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	switch (GPIO_Pin) {
 	case FUNCT_BTN_Pin:
+		funct_toggle();
 		break;
 	case MODE_BTN_Pin:
+		mode_toggle();
 		break;
 	default:
 		__NOP();

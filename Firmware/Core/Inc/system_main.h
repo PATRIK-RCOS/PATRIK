@@ -18,5 +18,7 @@
 /*
  * Prototypes for External Use
  */
+void mode_toggle(void);
+void funct_toggle(void);
 
 #endif /* INC_SYSTEM_MAIN_H_ */
