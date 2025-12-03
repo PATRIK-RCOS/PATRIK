@@ -16,6 +16,12 @@
 #include "system_main.h"
 
 /*
+ * Macros
+ */
+#define PRIMARY_TEXT_SIZE 4
+#define SECONDARY_TEXT_SIZE 3
+
+/*
  * Enums
  */
 typedef enum modesType {MODE_AM, MODE_USB, MODE_LSB, MODE_FM} modes_t;
@@ -87,6 +93,7 @@ void refreshDisplay(void);
 void app_main(void) {
 	/* Initialization of display and UI */
 	ILI9488_Init();
+	setRotation(1);
 	refreshDisplay();
 
 	/* True main loop */
@@ -106,7 +113,8 @@ void updateFrequency(float frq, upDown_t ud) {
 	// TODO: Set DDS
 
 	// TODO: Convert frequency to string and update display
-	ILI9488_printText("XXX.XXX", 160, 0, foreground, background, 3);
+	// The subtraction from 160 is to center the text (4 is half the height of the original font)
+	ILI9488_printText("XXX.XXX", 0, 160-(4*PRIMARY_TEXT_SIZE), foreground, background, PRIMARY_TEXT_SIZE);
 }
 
 void updateVolume(int vol, upDown_t ud) {
@@ -165,7 +173,7 @@ void updateMode(modes_t md) {
 	// TODO: Set something to change the modulation mode
 
 	// Update display
-	ILI9488_printText(modes[mode], 20, 440, foreground, background, 3);
+	ILI9488_printText(modes[mode], 480-(6*SECONDARY_TEXT_SIZE*3), 320-(16*SECONDARY_TEXT_SIZE), foreground, background, SECONDARY_TEXT_SIZE);
 }
 
 // Previous function is cleared from display before this is called
@@ -174,7 +182,7 @@ void updateFunction(functions_t funct) {
 	function = funct;
 
 	// Update display
-	ILI9488_printText(functions[function], 280, 440, foreground, background, 3);
+	ILI9488_printText(functions[function], 480-(6*SECONDARY_TEXT_SIZE*4), 320-(8*SECONDARY_TEXT_SIZE), foreground, background, SECONDARY_TEXT_SIZE);
 }
 
 void refreshDisplay(void) {
@@ -182,18 +190,19 @@ void refreshDisplay(void) {
 	fillScreen(ILI9488_BLUE);
 
 	// Write static text
-	ILI9488_printText("Vol: ", 0, 400, foreground, background, 3);
-	ILI9488_printText("Step: ", 300, 400, foreground, background, 3);
-	ILI9488_printText("Mode: ", 20, 400, foreground, background, 3);
-	ILI9488_printText("Knob Func: ", 280, 400, foreground, background, 3);
+	//ILI9488_printText("Vol:  xxx", 480-(6*SECONDARY_TEXT_SIZE*9), 0, foreground, background, SECONDARY_TEXT_SIZE);
+	//ILI9488_printText("Step: xxxx", 480-(6*SECONDARY_TEXT_SIZE*10), 8*SECONDARY_TEXT_SIZE, foreground, background, SECONDARY_TEXT_SIZE);
+	ILI9488_printText("Knob Func: ", 480-(6*SECONDARY_TEXT_SIZE*15), 320-(8*SECONDARY_TEXT_SIZE), foreground, background, SECONDARY_TEXT_SIZE);
+	ILI9488_printText("Mode: ", 480-(6*SECONDARY_TEXT_SIZE*10), 320-(16*SECONDARY_TEXT_SIZE), foreground, background, SECONDARY_TEXT_SIZE);
 
 
 	// Write dynamic values
-	updateFrequency(frequency, UD_NOTHING);
-	updateVolume(volume, UD_NOTHING);
-	updateStep(step, UD_NOTHING);
+	//updateFrequency(frequency, UD_NOTHING);
+	//updateVolume(volume, UD_NOTHING);
+	//updateStep(step, UD_NOTHING);
 	updateMode(mode);
 	updateFunction(function);
+
 }
 
 /*
@@ -201,7 +210,7 @@ void refreshDisplay(void) {
  */
 void mode_toggle(void) {
 	// Clear previous displayed mode
-	ILI9488_printText(modes[mode], 20, 440, background, background, 3);
+	ILI9488_printText(modes[mode], 20, 440, background, background, SECONDARY_TEXT_SIZE);
 
 	// Update mode
 	if (++mode > 3) {
@@ -212,7 +221,7 @@ void mode_toggle(void) {
 
 void funct_toggle(void) {
 	// Clear previous displayed function
-	ILI9488_printText(functions[function], 280, 440, background, background, 3);
+	ILI9488_printText(functions[function], 280, 440, background, background, SECONDARY_TEXT_SIZE);
 
 	// Update function
 	if (++function > 2) {

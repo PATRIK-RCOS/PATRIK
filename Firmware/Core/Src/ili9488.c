@@ -139,7 +139,7 @@ const unsigned char font1[] = {
 	0x7C, 0x04, 0x78, 0x04, 0x78,
 	0x7C, 0x08, 0x04, 0x04, 0x78,
 	0x38, 0x44, 0x44, 0x44, 0x38,
-	0xFC, 0x18, 0x24, 0x24, 0x18,
+	0x7C, 0x18, 0x24, 0x24, 0x18,
 	0x18, 0x24, 0x24, 0x18, 0xFC,
 	0x7C, 0x08, 0x04, 0x04, 0x08,
 	0x48, 0x54, 0x54, 0x54, 0x24,
@@ -777,7 +777,6 @@ void fillRect(int16_t x, int16_t y, int16_t w, int16_t h, uint16_t color)
 
 }
 
-
 void setRotation(uint8_t r)
 {
 
@@ -824,8 +823,8 @@ void drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color, uint16_t bg
 {
 	if(rotationNum == 1 || rotationNum ==3)
 	{
-		if((x >= ILI9488_TFTWIDTH)            || // Clip right
-     (y >= ILI9488_TFTHEIGHT)           || // Clip bottom
+		if((x >= ILI9488_TFTHEIGHT)            || // Clip right
+     (y >= ILI9488_TFTWIDTH)           || // Clip bottom
      ((x + 6 * size - 1) < 0) || // Clip left
      ((y + 8 * size - 1) < 0))   // Clip top
     return;
@@ -842,13 +841,13 @@ void drawChar(int16_t x, int16_t y, unsigned char c, uint16_t color, uint16_t bg
 
   if(!_cp437 && (c >= 176)) c++; // Handle 'classic' charset behavior
 
-  for (int8_t j=0; j<6; j++ ) {
+  for (int8_t i=0; i<6; i++ ) {
     uint8_t line;
-    if (j == 5)
+    if (i == 5)
       line = 0x0;
     else
-      line = pgm_read_byte(font1+(c*5)+j);
-    for (int8_t i = 0; i<8; i++) {
+      line = pgm_read_byte(font1+(c*5)+i);
+    for (int8_t j = 0; j<8; j++) {
       if (line & 0x1) {
         if (size == 1) // default size
         	drawPixel(x+i, y+j, color);
@@ -871,9 +870,9 @@ void ILI9488_printText(char text[], int16_t x, int16_t y, uint16_t color, uint16
 	int16_t offset;
 	offset = size*6;
 
-	for(uint16_t i=0; i < 40 && text[i] != 0; i++)
+	for(uint16_t i=0; i<40 && text[i]!=NULL; i++)
 	{
-		drawChar(x, y+(offset*i), text[i],color,bg,size);
+		drawChar(x+(offset*i), y, text[i],color,bg,size);
 	}
 }
 void testLines(uint8_t color)
