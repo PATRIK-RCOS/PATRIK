@@ -40,7 +40,7 @@ typedef enum upDown {UD_UP, UD_DOWN, UD_NOTHING} upDown_t;
  * Global Variables
  */
 float frequency = 28.000; // in MHz
-int volume = 0; // 0-100
+int volume = 50; // 0-100
 // Step variable
 // 1    KHz
 // 5    KHz
@@ -49,7 +49,7 @@ int volume = 0; // 0-100
 // 100  KHz
 // 250  KHz
 // 1000 KHz
-int step = 1; // in KHz
+int step = 250; // in KHz
 // State variable for mode
 //   0: AM
 //   1: USB
