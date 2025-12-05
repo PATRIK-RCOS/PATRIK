@@ -16,6 +16,15 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include "font.h"
+
+#define FONT_SIZE 16
+#define CHAR_WIDTH_BIG 32
+#define CHAR_HEIGHT_BIG 64
+#define CHAR_WIDTH_MED 16
+#define CHAR_HEIGHT_MED 32
+#define BUFFSIZE_BIG (CHAR_WIDTH_BIG*CHAR_HEIGHT_BIG*3)
+#define BUFFSIZE_MED (CHAR_WIDTH_MED*CHAR_HEIGHT_MED*3)
 
 #define RST_A() HAL_GPIO_WritePin(TFT_RST_GPIO_Port,TFT_RST_Pin,GPIO_PIN_RESET)
 #define RST_D() HAL_GPIO_WritePin(TFT_RST_GPIO_Port,TFT_RST_Pin,GPIO_PIN_SET)
@@ -121,7 +130,6 @@
 #define MADCTL_BGR 0x08
 #define MADCTL_MH  0x04
 
-
 #define swap(a, b) { int16_t t = a; a = b; b = t; }
 #define pgm_read_byte(addr) (*(const unsigned char *)(addr))
 #define min(a,b) (((a)<(b))?(a):(b))
@@ -163,6 +171,9 @@ void write16BitColor(uint16_t color);
 
 void testLines(uint8_t color);
 
+
+void draw_fast_char(unsigned int x, unsigned int y, char c, unsigned int colour, unsigned int bg_colour);
+void draw_fast_string(unsigned int x, unsigned int y, unsigned int colour, unsigned int bg_colour, char *str);
 
 
 #endif /* INC_ILI9488_H_ */

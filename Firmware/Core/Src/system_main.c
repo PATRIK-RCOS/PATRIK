@@ -113,8 +113,10 @@ void updateFrequency(float frq, upDown_t ud) {
 	// TODO: Set DDS
 
 	// TODO: Convert frequency to string and update display
-	// The subtraction from 160 is to center the text (4 is half the height of the original font)
-	ILI9488_printText("XXX.XXX", 0, 160-(4*PRIMARY_TEXT_SIZE), foreground, background, PRIMARY_TEXT_SIZE);
+	char* buf = calloc(8, sizeof(char));
+	snprintf(buf, 8, "%07.3f", frq);
+	draw_string(0, 160-(4*PRIMARY_TEXT_SIZE), foreground, background, buf, 3);
+	free(buf);
 }
 
 void updateVolume(int vol, upDown_t ud) {
@@ -128,7 +130,10 @@ void updateVolume(int vol, upDown_t ud) {
 	// TODO: Update audio amp
 
 	// TODO: Update display
-
+	char* buf = calloc(4, sizeof(char));
+	snprintf(buf, 4, "%03d", volume);
+	draw_string(475-((CHAR_WIDTH_MED+1)*3), 0, foreground, background, buf, 2);
+	free(buf);
 }
 
 void updateStep(int stp, upDown_t ud) {
@@ -162,7 +167,10 @@ void updateStep(int stp, upDown_t ud) {
 	step = stp;
 
 	// TODO: Update display
-
+	char* buf = calloc(5, sizeof(char));
+	snprintf(buf, 5, "%04d", step);
+	draw_string(475-((CHAR_WIDTH_MED+1)*4), 32, foreground, background, buf, 2);
+	free(buf);
 }
 
 // Previous mode is cleared from display before this is called
@@ -173,7 +181,7 @@ void updateMode(modes_t md) {
 	// TODO: Set something to change the modulation mode
 
 	// Update display
-	ILI9488_printText(modes[mode], 480-(6*SECONDARY_TEXT_SIZE*3), 320-(16*SECONDARY_TEXT_SIZE), foreground, background, SECONDARY_TEXT_SIZE);
+	draw_string(475-((CHAR_WIDTH_MED+1)*3), 320-(64), foreground, background, modes[mode], 2);
 }
 
 // Previous function is cleared from display before this is called
@@ -182,7 +190,7 @@ void updateFunction(functions_t funct) {
 	function = funct;
 
 	// Update display
-	ILI9488_printText(functions[function], 480-(6*SECONDARY_TEXT_SIZE*4), 320-(8*SECONDARY_TEXT_SIZE), foreground, background, SECONDARY_TEXT_SIZE);
+	draw_string(475-((CHAR_WIDTH_MED+1)*4), 320-(32), foreground, background, functions[function], 2);
 }
 
 void refreshDisplay(void) {
@@ -190,16 +198,16 @@ void refreshDisplay(void) {
 	fillScreen(ILI9488_BLUE);
 
 	// Write static text
-	//ILI9488_printText("Vol:  xxx", 480-(6*SECONDARY_TEXT_SIZE*9), 0, foreground, background, SECONDARY_TEXT_SIZE);
-	//ILI9488_printText("Step: xxxx", 480-(6*SECONDARY_TEXT_SIZE*10), 8*SECONDARY_TEXT_SIZE, foreground, background, SECONDARY_TEXT_SIZE);
-	ILI9488_printText("Knob Func: ", 480-(6*SECONDARY_TEXT_SIZE*15), 320-(8*SECONDARY_TEXT_SIZE), foreground, background, SECONDARY_TEXT_SIZE);
-	ILI9488_printText("Mode: ", 480-(6*SECONDARY_TEXT_SIZE*10), 320-(16*SECONDARY_TEXT_SIZE), foreground, background, SECONDARY_TEXT_SIZE);
+	draw_string(475-((CHAR_WIDTH_MED+1)*8), 0, foreground, background, "Vol:  ", 2);
+	draw_string(475-((CHAR_WIDTH_MED+1)*10), 32, foreground, background, "Step: ", 2);
+	draw_string(475-((CHAR_WIDTH_MED+1)*9), 320-(64), foreground, background, "Mode: ", 2);
+	draw_string(475-((CHAR_WIDTH_MED+1)*15), 320-(32), foreground, background, "Knob Func: ", 2);
 
 
 	// Write dynamic values
-	//updateFrequency(frequency, UD_NOTHING);
-	//updateVolume(volume, UD_NOTHING);
-	//updateStep(step, UD_NOTHING);
+	updateFrequency(frequency, UD_NOTHING);
+	updateVolume(volume, UD_NOTHING);
+	updateStep(step, UD_NOTHING);
 	updateMode(mode);
 	updateFunction(function);
 
@@ -210,7 +218,7 @@ void refreshDisplay(void) {
  */
 void mode_toggle(void) {
 	// Clear previous displayed mode
-	ILI9488_printText(modes[mode], 20, 440, background, background, SECONDARY_TEXT_SIZE);
+	//ILI9488_printText(modes[mode], 20, 440, background, background, SECONDARY_TEXT_SIZE);
 
 	// Update mode
 	if (++mode > 3) {
@@ -221,7 +229,7 @@ void mode_toggle(void) {
 
 void funct_toggle(void) {
 	// Clear previous displayed function
-	ILI9488_printText(functions[function], 280, 440, background, background, SECONDARY_TEXT_SIZE);
+	//ILI9488_printText(functions[function], 280, 440, background, background, SECONDARY_TEXT_SIZE);
 
 	// Update function
 	if (++function > 2) {
