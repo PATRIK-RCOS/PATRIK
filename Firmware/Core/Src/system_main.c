@@ -115,7 +115,7 @@ void updateFrequency(float frq, upDown_t ud) {
 	// TODO: Convert frequency to string and update display
 	char* buf = calloc(8, sizeof(char));
 	snprintf(buf, 8, "%07.3f", frq);
-	draw_string(0, 160-(4*PRIMARY_TEXT_SIZE), foreground, background, buf, 3);
+	draw_string(0, 160-(CHAR_HEIGHT_BIG/2), foreground, background, buf, 3);
 	free(buf);
 }
 
