@@ -112,7 +112,7 @@ void updateFrequency(float frq, upDown_t ud) {
 
 	// TODO: Set DDS
 
-	// TODO: Convert frequency to string and update display
+	// Convert frequency to string and update display
 	char* buf = calloc(8, sizeof(char));
 	snprintf(buf, 8, "%07.3f", frq);
 	draw_string(0, 160-(CHAR_HEIGHT_BIG/2), foreground, background, buf, 3);
@@ -129,7 +129,7 @@ void updateVolume(int vol, upDown_t ud) {
 
 	// TODO: Update audio amp
 
-	// TODO: Update display
+	// Update display
 	char* buf = calloc(4, sizeof(char));
 	snprintf(buf, 4, "%03d", volume);
 	draw_string(475-((CHAR_WIDTH_MED+1)*3), 0, foreground, background, buf, 2);
@@ -166,7 +166,7 @@ void updateStep(int stp, upDown_t ud) {
 	// Update global variable
 	step = stp;
 
-	// TODO: Update display
+	// Update display
 	char* buf = calloc(5, sizeof(char));
 	snprintf(buf, 5, "%04d", step);
 	draw_string(475-((CHAR_WIDTH_MED+1)*4), 32, foreground, background, buf, 2);
