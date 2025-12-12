@@ -13,3 +13,17 @@ Below are some pictures of the finished product, in order of progression of encl
 <img src="IMG_4802.jpg">
 <img src="IMG_4805.jpg">
 <img src="IMG_4807.jpg">
+
+# Testing
+In order to test the balun to see if it actually works, we can use a nanoVNA (Nano Vector Network Analyzer) in order to analyze the impedance. Using the nanoVNA, we can also measure the insertion loss and the signal attenuation. 
+To test it, you need to connect the inner conductor of the balun in series with port 1 and port 2 of the nanoVNA. You would also short both shields (outer conductors) in order to get a consistent measurement, and connect it to ground. Then, the nanoVNA should display the magnitude of an input signal for the frequency range you specify. Ensure the frequency range includes the frequencies you want the balun to work oN!
+Once you've connected it and you see a magnitude measurement, as long as the attenuation is about ~20-30 dB, that is "good enough" for a balun.
+
+If the attenuation is not in that range for the frequency you want the balun to work on, you can change the lengths of the balun wires. If there is too much spare wire on the ends of the balun, that could throw off the measurements. Also, if the attenuation is way off, try adding or removing one turn. Doing this over and over again, and trying to optimize the attenuation at the intended frequency, will eventually get your balun tuned to where you want it to work the best.
+
+Unfortunately, this is ideal conditions. The impedance of the common mode choke, or balun, will change once there is an actual load presented at the end, such as an actual antenna.
+
+In that case, the measurements will be off and the impedance won't be exactly 50 ohms, but it wouldn't vary too much in which it wouldn't even let any power through. Worst case, it attenuates the output signal by a few dB. Not ideal, but also not the worst.
+
+Note: lots of information taken from this video.
+https://www.youtube.com/watch?v=E9F7Aot_AFg
